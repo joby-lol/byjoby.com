@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}page title{% endblock %}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/assets/main.css">
+        {#<style>
+            /*
+                This is CSS to make the home page header bigger/fancier
+            */
+            #main-header h1 a:before {
+                height:8em;
+                width:100%;
+                margin-bottom:1em;
+                display:block;
+            }
+        </style>#}
+    </head>
+    <body>
+        <header id="main-header">
+            <h1><a href="/" title="Joby Elliott">by&nbsp;Joby</a></h1>
+        </header>
+        <nav id="main-nav">
+            <a href="/">Home</a>
+            <a href="/relics/">Relics</a>
+        </nav>
+        {% block body %}
+            <section class="main-page">
+                <h1>{{ pageTitle }}</h1>
+                {{ pageBody }}
+            </section>
+        {% endblock %}
+
+        <footer id="main-footer">
+            This is the colophon or whatever
+        </footer>
+    </body>
+</html>

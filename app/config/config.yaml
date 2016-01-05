@@ -1,0 +1,23 @@
+debug: false
+config:
+    timezone: 'America/Denver'
+    errorHandler: '\CoreBundle\ErrorHandler'
+    fields:
+        siteName: by Joby
+        pageTitle: no title
+        pageBody: no content
+    content:
+        path: '../content'
+        ttl: 5
+        static:
+            jpg: image/jpeg
+            jpeg: image/jpeg
+            png: image/png
+            gif: image/gif
+            css: text/css
+            js: application/javascript
+    twig:
+        path: '../templates'
+    monolog:
+        logfile: 'logs/monolog.log'
+        level: 'WARNING'

@@ -1,0 +1,35 @@
+{
+    "name": "byjoby/byjobycom",
+    "description": "Joby's site at www.byjoby.com",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Joby Elliott",
+            "email": "joby@byjoby.com"
+        }
+    ],
+    "require": {
+        "symfony/dom-crawler": "^3.0",
+        "symfony/css-selector": "^3.0",
+        "silex/silex": "^1.3",
+        "twig/twig": "^1.23",
+        "monolog/monolog": "^1.17",
+        "ddesrosiers/silex-annotation-provider": "*",
+        "doctrine/cache": "*",
+        "mnapoli/front-yaml": "^1.5",
+        "aptoma/twig-markdown": "^2.0",
+        "michelf/php-markdown": "^1.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "app/src/"
+        }
+    },
+    "prefer-stable": true,
+    "config": {
+        "vendor-dir": "app/vendor",
+        "bin-dir": "app/vendor/bin",
+        "bin-compat": "full",
+        "platform": {}
+    }
+}

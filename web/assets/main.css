@@ -1,0 +1,149 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Droid+Serif:400,400italic,700,700italic);
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+img {
+    max-width:100%;
+    height:auto !important;
+}
+
+/*
+    Main typography
+*/
+body {
+    font-family: serif;
+    background:#f6f2ef url(/assets/img/ricepaper.jpg);
+    margin:1em;
+    text-align:center;
+    line-height:1.5em;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Droid Serif", serif;
+}
+#main-header,
+#main-nav,
+#main-footer {
+    font-family: "Open Sans", sans-serif;
+    text-align:center;
+    color:rgba(196, 47, 30, 1);
+}
+/*
+    Main layout
+*/
+#main-header {
+    margin:1em 0;
+}
+#main-header h1 {
+    font-family: "Open Sans", sans-serif;
+    padding:0;
+    margin:0;
+    font-size:2em;
+}
+#main-header h1 a {
+    display:inline-block;
+    text-decoration:none;
+    color:inherit;
+}
+#main-header h1:before {
+    content:"";
+    display:inline-block;
+    height:1.5em;
+    width:1.5em;
+    background-image:url(/assets/img/logo.png);
+    background-size:contain;
+    background-position:center center;
+    background-repeat:no-repeat;
+    vertical-align:middle;
+}
+#main-header h1 a:before {
+    content:"Things done, thoughts had, and other ephemera";
+    display:inline-block;
+    vertical-align:middle;
+    font-weight:100;
+    font-size:0.4em;
+    text-align:center;
+    margin:1em;
+}
+#main-nav {
+    margin:2em 0;
+    font-size:0rem;
+}
+#main-nav a {
+    display:inline-block;
+    margin:0 0.125em;
+    padding:0 1em;
+    background-color:rgba(196, 47, 30, 0.75);
+    color:#fff;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:0.75rem;
+}
+#main-nav a:first-child {
+    margin-left:0;
+}
+#main-nav a.active {
+    background-color:rgba(196, 47, 30, 0.9);
+    font-style: italic;
+}
+#main-nav a:hover {
+    background-color:rgba(196, 47, 30, 1);
+    text-decoration:underline;
+}
+#main-footer {
+    font-size:0.75em;
+    margin:2em 0;
+}
+/*
+    Content-area rules
+*/
+aside:after, section:after, article:after {
+    content:"";
+    display:block;
+    height:0;
+    clear:both;
+}
+body > section,
+body > article {
+    margin: 1em auto;
+    padding:1em 2em;
+    max-width:40em;
+    background:rgba(255,255,255,0.75);
+}
+body > * {
+    text-align:left;
+}
+aside, figure {
+    background:rgba(246, 242, 239, 0.5);
+    border:2px dotted rgb(246, 242, 239);
+    padding:0.125em 1.5em;
+    margin:1em 0;
+}
+figure {
+    padding-bottom: 1em;
+    text-align:center;
+}
+figure > *:first-child {
+    margin-top:1em;
+}
+figcaption {
+    color:rgb(154, 134, 118);
+    line-height:1.2em;
+    font-size:0.85em;
+}
+.major-figure {
+    width:100%;
+    margin:1em auto;
+    box-shadow:0 0.25em 1em rgb(246, 242, 239);
+    border:2px solid rgb(246, 242, 239);
+}
+@media (min-width:30em) {
+    aside, figure {
+        width:50%;
+        float:right;
+        margin-top:0;
+        margin-left:1em;
+    }
+}
