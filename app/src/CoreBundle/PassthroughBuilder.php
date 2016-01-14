@@ -26,10 +26,10 @@ class PassthroughBuilder
 		$extension = explode('.', $path);
 		$extension = array_pop($extension);
 		//handle files that are pass throughs
-		if (isset($this->app['config.content.static.' . $extension])) {
+		if (isset($this->app['config']['content']['static'][$extension])) {
 			return $this->app->stream(function() use($path) {
 						readfile($path);
-					}, 200, array('Content-Type' => $this->app['config.content.static.' . $extension]));
+					}, 200, array('Content-Type' => $this->app['config']['content']['static'][$extension]));
 		}
 	}
 
@@ -38,7 +38,7 @@ class PassthroughBuilder
 		if ($url == '/') {
 			$url = '';
 		}
-		$path = $this->app['appDir'] . '/' . $this->app['config.content.path'] . $url;
+		$path = $this->app['appDir'] . '/' . $this->app['config']['content']['path'] . $url;
 		if (is_file($path)) {
 			return $path;
 		}

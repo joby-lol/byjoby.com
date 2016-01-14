@@ -6,6 +6,7 @@ config:
         siteName: by Joby
         pageTitle: no title
         pageBody: no content
+        libraries: false
     content:
         path: '../content'
         ttl: 5

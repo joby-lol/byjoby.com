@@ -35,10 +35,7 @@ class ContentBuilder
 		if (!$this->app['twig']->getLoader()->exists($template)) {
 			return false;
 		}
-		$fields = array(
-			'pageTitle' => 'Unknown title',
-			'pageBody' => 'No content'
-		);
+		$fields = $this->app['config']['fields'];
 		//load YAML front matter
 		$parser = new \Mni\FrontYAML\Parser();
 		$document = $parser->parse(file_get_contents($path));
@@ -55,7 +52,7 @@ class ContentBuilder
 		if ($url == '/') {
 			$url = '';
 		}
-		$globPath = $this->app['appDir'] . '/' . $this->app['config.content.path'] . $url;
+		$globPath = $this->app['appDir'] . '/' . $this->app['config']['content']['path'] . $url;
 		$globPath = preg_replace('/\/$/', '', $globPath);
 		$globs = array(
 			$globPath . '/index.*',

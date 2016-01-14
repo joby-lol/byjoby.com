@@ -1,6 +1,9 @@
 # Composer vendor files
 app/vendor
 
+# Environment config
+app/config/environment.yaml
+
 # Draft content
 content/drafts
 
@@ -8,8 +11,9 @@ content/drafts
 app/cache/*
 app/logs/*
 
-# Netbeans
+# Netbeans/Sublime
 nbproject/private
+.phpintel
 
 # .gitkeep files
 !.gitkeep

@@ -21,6 +21,10 @@ $app['yaml'] = $app->protect(function($value) use ($app, $yaml) {
 
 //load config and boot
 $config = $app['yaml'](file_get_contents(__DIR__ . '/config/config.yaml'));
+if (file_exists(__DIR__ . '/config/environment.yaml')) {
+	$config_env = $app['yaml'](file_get_contents(__DIR__ . '/config/environment.yaml'));
+	$config = array_replace_recursive($config, $config_env);
+}
 //set timezone explicitly before booting
 date_default_timezone_set($config['config']['timezone']);
 //load config and boot
