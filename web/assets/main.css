@@ -92,7 +92,7 @@ h6 {
 #main-footer {
     font-family: sans-serif;
     text-align:center;
-    color:rgba(196, 47, 30, 1);
+    color:#C42F1E;
 }
 
 /*
@@ -118,7 +118,7 @@ h6 {
     display:inline-block;
     height:3rem;
     width:3rem;
-    background-image:url(/assets/img/logo.png);
+    background-image:url(/assets/img/logo-192.png);
     background-size:contain;
     background-position:center center;
     background-repeat:no-repeat;
@@ -153,6 +153,9 @@ h6 {
 #main-footer {
     font-size:0.75em;
     margin:2em 0;
+}
+#main-footer .meta h1 {
+    margin:0;
 }
 
 /*

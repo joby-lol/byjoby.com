@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{% block title %}page title{% endblock %}</title>
+        <title>{% block title %}{{ pageTitle }} :: {{ siteName }}{% endblock %}</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#C42F1E">
+        <link rel="icon" sizes="192x192" href="/assets/img/logo-192.png">
+        <link rel="icon" sizes="16x16" href="/assets/img/logo-16.png">
         <link rel="stylesheet" href="/assets/main.css">
         {#<style>
             /*
@@ -25,6 +28,7 @@
             <a href="/">Home</a>
             <a href="/relics/">Relics</a>
         </nav>
+
         {% block body %}
             <section class="main-page">
                 <h1>{{ pageTitle }}</h1>
@@ -33,7 +37,13 @@
         {% endblock %}
 
         <footer id="main-footer">
-            This is the colophon or whatever
+            {% if pageMeta is defined %}
+                <div class="meta">
+                    <h1>Page metadata</h1>
+                    {% if pageMeta.datePublished is defined %}first published: {{ pageMeta.datePublished|date("m/d/Y") }}{% endif %}
+                    {% if pageMeta.dateUpdated is defined %}last updated: {{ pageMeta.dateUpdated|date("m/d/Y") }}{% endif %}
+                </div>
+            {% endif %}
             {# library credits #}
             {% if 'mathjax' in libraries %}
                 <a href="http://www.mathjax.org">
