@@ -11,12 +11,24 @@ config:
         path: '../content'
         ttl: 5
         static:
-            jpg: image/jpeg
-            jpeg: image/jpeg
-            png: image/png
-            gif: image/gif
-            css: text/css
-            js: application/javascript
+            jpg:
+                mime: image/jpeg
+                ttl: 3600
+            jpeg:
+                mime: image/jpeg
+                ttl: 3600
+            png:
+                mime: image/png
+                ttl: 3600
+            gif:
+                mime: image/gif
+                ttl: 3600
+            css:
+                mime: text/css
+                ttl: 3600
+            js:
+                mime: application/javascript
+                ttl: 3600
     twig:
         path: '../templates'
     monolog:

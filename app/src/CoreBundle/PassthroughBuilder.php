@@ -29,7 +29,12 @@ class PassthroughBuilder
 		if (isset($this->app['config']['content']['static'][$extension])) {
 			return $this->app->stream(function() use($path) {
 						readfile($path);
-					}, 200, array('Content-Type' => $this->app['config']['content']['static'][$extension]));
+					}, 200, array(
+						'Content-Type' => $this->app['config']['content']['static'][$extension]['mime'],
+						'Cache-Control' => 's-maxage=' . $this->app['config']['content']['static'][$extension]['ttl'],
+						'Expires' => date('D, d M Y H:i:s', time() + $this->app['config']['content']['static'][$extension]['ttl']),
+						'etag' => md5_file($path)
+					));
 		}
 	}
 

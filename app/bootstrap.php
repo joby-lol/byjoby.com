@@ -7,6 +7,10 @@ use Symfony\Component\Debug\ExceptionHandler;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
+if (extension_loaded("zlib") && (ini_get("output_handler") != "ob_gzhandler")) {
+    ini_set("zlib.output_compression", 1);
+}
+
 ExceptionHandler::register();
 
 $app = new Application();
