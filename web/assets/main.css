@@ -159,7 +159,7 @@ h6 {
 /*
     Content-area rules
 */
-aside:after, section:after, article:after {
+figure:after, aside:after, section:after, article:after {
     content:"";
     display:block;
     height:0;
@@ -176,9 +176,9 @@ body > * {
     text-align:left;
 }
 aside, figure {
-    color:rgb(120, 83, 0);
-    background:rgba(255, 231, 176, 0.15);
-    border:2px dotted rgba(120, 83, 0, 0.25);
+    color:#6F4126;
+    background:rgba(246, 242, 239, 0.5);
+    border:2px dotted rgb(246, 242, 239);
     padding:0.125em 1.5em;
     margin:1em 0;
     font-size:0.9em;
