@@ -11,17 +11,82 @@ img {
 }
 
 /*
+    Links
+    Nothing fancy here, just colors I like
+*/
+a[href] {
+    color:rgb(0, 52, 254);
+    text-decoration:none;
+    background:rgba(0, 52, 254, 0.1);
+}
+a[href]:visited {
+    color:rgb(120, 83, 0);
+    background:rgba(120, 83, 0, 0.1);
+}
+a[href]:hover {
+    text-decoration:underline;
+    color:rgb(196, 46, 30);
+    background:rgba(196, 46, 30, 0.1);
+}
+a[href]:active {
+    color:rgb(23, 148, 51);
+    background:rgba(23, 148, 51, 0.1);
+}
+
+/*
+    Block element margins and sizes
+*/
+h1, h2, h3, h4, h5, h6,
+p, figure, ul, ol {
+    margin: 1.4rem 0;
+}
+p, li {
+    max-width: 30em;
+}
+ul, ol {
+    padding-left:1.4em;
+}
+
+/*
     Main typography
 */
 body {
     font-family: serif;
-    background:#f6f2ef url(/assets/img/ricepaper.jpg);
-    margin:1em;
+    background:#f6f2ef;
+    margin:1em 0;
     text-align:center;
-    line-height:1.5em;
+    line-height:1.4em;
 }
 h1, h2, h3, h4, h5, h6 {
+    font-weight:normal;
+    font-style:italic;
     font-family: "Droid Serif", serif;
+    margin-top:2.8rem;
+}
+h1 {
+    font-style:normal;
+    font-size:1.61em;
+}
+h1:first-child {
+    margin-top:1.4rem;
+}
+h1, h2 {
+    font-weight:bold;
+}
+h2 {
+    font-size:1.46em;
+}
+h3 {
+    font-size:1.33em;
+}
+h4 {
+    font-size:1.21em;
+}
+h5 {
+    font-size:1.1em;
+}
+h6 {
+    font-size:1em;
 }
 #main-header,
 #main-nav,
@@ -30,6 +95,7 @@ h1, h2, h3, h4, h5, h6 {
     text-align:center;
     color:rgba(196, 47, 30, 1);
 }
+
 /*
     Main layout
 */
@@ -46,26 +112,19 @@ h1, h2, h3, h4, h5, h6 {
     display:inline-block;
     text-decoration:none;
     color:inherit;
+    background:transparent;
 }
-#main-header h1:before {
+#main-header h1 a:before {
     content:"";
     display:inline-block;
-    height:1.5em;
-    width:1.5em;
+    height:3rem;
+    width:3rem;
     background-image:url(/assets/img/logo.png);
     background-size:contain;
     background-position:center center;
     background-repeat:no-repeat;
     vertical-align:middle;
-}
-#main-header h1 a:before {
-    content:"Things done, thoughts had, and other ephemera";
-    display:inline-block;
-    vertical-align:middle;
-    font-weight:100;
-    font-size:0.4em;
-    text-align:center;
-    margin:1em;
+    margin-right:1rem;
 }
 #main-nav {
     margin:2em 0;
@@ -96,6 +155,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size:0.75em;
     margin:2em 0;
 }
+
 /*
     Content-area rules
 */
@@ -107,19 +167,21 @@ aside:after, section:after, article:after {
 }
 body > section,
 body > article {
+    max-width:45em;
     margin: 1em auto;
     padding:1em 2em;
-    max-width:40em;
     background:rgba(255,255,255,0.75);
 }
 body > * {
     text-align:left;
 }
 aside, figure {
-    background:rgba(246, 242, 239, 0.5);
-    border:2px dotted rgb(246, 242, 239);
+    color:rgb(120, 83, 0);
+    background:rgba(255, 231, 176, 0.15);
+    border:2px dotted rgba(120, 83, 0, 0.25);
     padding:0.125em 1.5em;
     margin:1em 0;
+    font-size:0.9em;
 }
 figure {
     padding-bottom: 1em;
@@ -129,17 +191,31 @@ figure > *:first-child {
     margin-top:1em;
 }
 figcaption {
-    color:rgb(154, 134, 118);
     line-height:1.2em;
-    font-size:0.85em;
 }
-.major-figure {
+.major-figure,
+aside:last-child,
+figure:last-child {
     width:100%;
     margin:1em auto;
-    box-shadow:0 0.25em 1em rgb(246, 242, 239);
-    border:2px solid rgb(246, 242, 239);
 }
-@media (min-width:30em) {
+@media (min-width:40em) {
+    body {
+        background-image:url(/assets/img/ricepaper.jpg);
+        margin:1em;
+    }
+    #main-header h1 a:before {
+        content:"Things done, thoughts had, and other ephemera";
+        background-position:center left;
+        display:inline-block;
+        vertical-align:middle;
+        font-weight:lighter;
+        font-size:0.4em;
+        text-align:center;
+        padding-left: 4rem;
+        line-height:3rem;
+        width:auto;
+    }
     aside, figure {
         width:50%;
         float:right;

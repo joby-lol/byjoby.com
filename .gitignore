@@ -1,6 +1,9 @@
 # Composer vendor files
 app/vendor
 
+# Draft content
+content/drafts
+
 # Cache/logs
 app/cache/*
 app/logs/*
