@@ -1,7 +1,5 @@
 ---
-pageTitle: "Bringing the web back to basics"
-pageMeta:
-    datePublished: 2016-01-14
+title: "Bringing the web back to basics"
 ---
 
 # Bringing the web back to basics

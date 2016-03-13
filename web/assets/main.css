@@ -49,6 +49,17 @@ ul, ol {
 /*
     Main typography
 */
+.breadcrumb {
+    font-size:0.75em;
+    position:absolute;
+    line-height:1.5em;
+    bottom:100%;
+    right:0;
+    padding:0.25em 0.5em;
+    background:rgba(255,255,255,0.75);
+    border-top-right-radius:0.25em;
+    border-top-left-radius:0.25em;
+}
 body {
     font-family: serif;
     background:#f6f2ef;
@@ -66,7 +77,8 @@ h1 {
     font-style:normal;
     font-size:1.61em;
 }
-h1:first-child {
+h1:first-child,
+.breadcrumb + h1 {
     margin-top:1.4rem;
 }
 h1, h2 {
@@ -142,7 +154,8 @@ h6 {
 #main-nav a:first-child {
     margin-left:0;
 }
-#main-nav a.active {
+#main-nav a.active,
+#main-nav a.pathactive {
     background-color:rgba(196, 47, 30, 0.9);
     font-style: italic;
 }
@@ -173,6 +186,7 @@ body > article {
     margin: 1em auto;
     padding:1em 2em;
     background:rgba(255,255,255,0.75);
+    position:relative;
 }
 body > * {
     text-align:left;

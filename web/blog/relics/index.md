@@ -1,6 +1,6 @@
 ---
-pageTitle: Relics of the past
-pageDate: 2016-01-04
+title: Relics
+date: 2016-01-04
 ---
 
 # Relics of the ancients

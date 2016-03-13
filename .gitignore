@@ -1,18 +1,11 @@
 # Composer vendor files
 app/vendor
 
-# Environment config
-app/config/environment.yaml
-
 # Draft content
-content/drafts
+web/drafts
 
-# Cache/logs
-app/cache/*
-app/logs/*
-
-# Netbeans/Sublime
-nbproject/private
+vendor/
+deploy.*.log
 .phpintel
 
 # .gitkeep files
