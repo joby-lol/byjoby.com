@@ -4,5 +4,5 @@ read MESSAGE
 make
 git add build/**
 git add src/**
-git commit -m $MESSAGE && git push
+git commit -m "$MESSAGE" && git push
 git ftp push
