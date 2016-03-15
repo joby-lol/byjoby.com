@@ -6,13 +6,6 @@ title: Home
 
 This page is being generated through a whole chain of medium-complicated stuff!
 
-<figure>
-    <img src="/portrait.jpg">
-    <figcaption>
-        This is a picture of me when I met George R. R. Martin. Rendered in a nice, semantic, standards-compliant &lt;figure&gt; tag.
-    </figcaption>
-</figure>
-
 Whether that is good or not is up for debate. I, of all people, should be bothered by this complexity. Few things are as important to me as the democratization of the web. To that end, no HTML, CSS or Javascript <em>(lol)</em> on this site will ever be <strike>minified</strike> <em>uglified</em>. View source to your heart's content, and then go out and build your own! Together we can break the silos and build a free-er, more durable, more interesting, and just plain weirder and more wonderful web.
 
 In any event, my name is Joby. I'm a web developer, artist, graphic designer, and computer science student at the University of New Mexico. This is my little slice of the internet. I honestly don't entirely know what it's for, but I do know that it's mine.
