@@ -1,5 +1,5 @@
 #!/bin/bash
-SOURCE=${1/content\/}
+SOURCE=${1/src\/}
 echo "copying $SOURCE"
-cd content
+cd src
 cp --parents $SOURCE ../build
