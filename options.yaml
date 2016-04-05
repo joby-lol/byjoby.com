@@ -1,0 +1,20 @@
+meta:
+  site: Joby Elliott
+  url: http://www.byjoby.com/
+  title: Untitled
+  template: default
+
+srcDir: src
+buildDir: build
+baseUrl: http://www.byjoby.com
+indexPattern: index\.(html?|php)$
+handlers:
+  - pattern: \.(jpe?g|gif|png|pdf)$
+    handler: copyhandler
+  - pattern: \.(css|js)$
+    handler: copyhandler
+  - pattern: \.(md|markdown)$
+    handler: markdownhandler
+    transform: 
+      search: '\.[^.]+$'
+      replace: '.html'
