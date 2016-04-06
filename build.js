@@ -89,9 +89,11 @@ function buildFile(src, dest) {
                 meta: meta
             });
             // check if dest already exists and is newer
+            // also verifies that template is not newer than existing destination file
             if (fs.existsSync(dest)) {
                 destStat = fs.statSync(dest);
-                if (destStat.mtime > srcStat.mtime) {
+                var templateStat = fs.statSync('templates/'+meta.template+'.twig');
+                if (destStat.mtime > srcStat.mtime && destStat.mtime > templateStat.mtime) {
                     meta.filebtime = destStat.mtime;
                     stats.notModified++;
                     return true;
