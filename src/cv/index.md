@@ -12,6 +12,6 @@ template: cv
 ### BS Computer Science & Art Studio | University of New Mexico
 In progress expected graduation: 2019.
 
-[1]: jelliott@cs.unm.edu
+[1]: mailto:jelliott@cs.unm.edu
 [2]: byjoby.com
 [3]: github.com/jobyone
