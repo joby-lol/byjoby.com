@@ -125,6 +125,9 @@ function buildFile(src, dest) {
 
 /**
  * Apply templates from templateQueue
+ * Note that twig is run twice, to allow twig content inside other twig
+ * content. This wouldn't be secure in a shared user input type thing,
+ * but this isn't that sort of tool.
  * @param  {array} templateQueue
  * @param  {array} options       
  * @return {void}             
@@ -136,6 +139,12 @@ function applyTemplates(templateQueue, options) {
         meta.template_body = fs.readFileSync(page.dest).toString();
         var template = twig.twig({
             path: 'templates/' + page.meta.template + '.twig',
+            async: false
+        });
+        var content = template.render(meta);
+        var template = twig.twig({
+            path: false,
+            data: content,
             async: false
         });
         fs.writeFileSync(page.dest, template.render(meta));
