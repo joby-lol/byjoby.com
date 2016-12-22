@@ -1,0 +1,24 @@
+{
+    "name": "byjoby/www.byjoby.com",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Joby Elliott",
+            "email": "joby@byjoby.com"
+        }
+    ],
+    "require": {
+        "doctrine/dbal": "^2.5",
+        "symfony/yaml": "^3.2",
+        "twig/twig": "^1.29",
+        "mnapoli/front-yaml": "^1.5"
+    },
+    "autoload": {
+        "psr-4": {"byjoby\\": "byjoby"}
+    },
+    "config": {
+        "platform": {
+            "php": "7.0"
+        }
+    }
+}

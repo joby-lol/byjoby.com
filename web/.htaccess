@@ -1,0 +1,7 @@
+RewriteEngine on
+RewriteBase /
+
+# This redirects all .md and index.md files to the markdown parser
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME}/index.md -f
+RewriteRule ^(.+\.md|.+\/)$ markdown.php?url=/$0 [L]

@@ -1,33 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{{ title }} :: {{ site }}</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#C42F1E">
-    <link rel="stylesheet" href="/style.css">
-</head>
-<body>
+{% extends "default.twig" %}
 
-<header>
-    <h1>(*joby_elliott).blog</h1>
-</header>
-<nav>
-    <a href="/blog/" class="active">Blog</a>
-    <a href="/cv/">CV</a>
-</nav>
-
-<div id="content">
-
-{{ template_body }}
-
-</div>
-
-</body>
-</html>
-
-<!--
-File data:
-last modified: {{ filemtime }}
-last built: {{ filebtime }}
--->
+{% block navigation %}
+    <nav role="navigation">
+        <div role="menubar">
+            <a role="menuitem" href="/blog/" aria-selected="true">Blog</a>
+            <a role="menuitem" href="/cv/">CV</a>
+            <a role="menuitem" href="/test/">Test</a>
+        </div>
+    </nav>
+{% endblock %}

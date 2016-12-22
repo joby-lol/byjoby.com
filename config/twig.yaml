@@ -1,0 +1,4 @@
+template: default.twig
+template_rules:
+  - ["/^\\/blog\\//","blog.twig"]
+paths: %rootdir%/templates

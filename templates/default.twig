@@ -1,33 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{ title }} :: {{ site }}</title>
+    <title>{{page_title}} :: {{site_name}}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#C42F1E">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/hs/hs-typography.css">
+    <link rel="stylesheet" href="/css/hs/hs-menus.css">
+    <link rel="stylesheet" href="/css/hs/hs-fa-linkicons.css">
+    <link rel="stylesheet" href="/css/hs/hs-layout-1col.css">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
 
-<header>
-    <h1>*joby_elliott</h1>
-</header>
-<nav>
-    <a href="/blog/">Blog</a>
-    <a href="/cv/">CV</a>
-</nav>
+{% block banner %}
+    <header role="banner">
+        <h1><a href="/">*joby_elliott</a></h1>
+    </header>
+{% endblock %}
 
-<div id="content">
+{% block navigation %}
+    <nav role="navigation">
+        <div role="menubar">
+            <a role="menuitem" href="/blog/">Blog</a>
+            <a role="menuitem" href="/cv/">CV</a>
+            <a role="menuitem" href="/test/">Test</a>
+        </div>
+    </nav>
+{% endblock %}
 
-{{ template_body }}
+    <main role="main">
+        {{page_body|raw}}
+    </main>
 
-</div>
+    <footer role="contentinfo">
+        &copy; Joby Elliott
+    </footer>
 
 </body>
 </html>
-
-<!--
-File data:
-last modified: {{ filemtime }}
-last built: {{ filebtime }}
--->
