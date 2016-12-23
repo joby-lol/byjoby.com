@@ -31,6 +31,10 @@ if (!defined('PAGE_NOTEMPLATE')) {
     ob_start();
     register_shutdown_function(function () {
         $page = ob_get_clean();
-        echo TwigPage::render($page);
+        if (TwigPage::$aborted) {
+            echo $page;
+        } else {
+            echo TwigPage::render($page);
+        }
     });
 }

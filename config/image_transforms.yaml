@@ -1,0 +1,6 @@
+thumb:
+  crop: 128x128
+figure:
+  scale: 512x1024
+hero: 
+  scale: 768x10000

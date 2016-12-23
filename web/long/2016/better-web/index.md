@@ -31,7 +31,7 @@ Your other options include: Not patching it and throwing security to the wind, o
 I know that fooling around with complex stuff is like catnip for people like us, but try to contain yourself. You know what's like catnip for other people? *Reading things on websites that aren't broken.*
 
 <figure>
-    <img src="google.png">
+    <img src="google.png?figure">
     <figcaption>
         You would think the geniuses at Google could make one form with an amount of Javascript that would cost under $100 to print at FedEx. You would be wrong
     </figcaption>
@@ -41,7 +41,7 @@ I know that fooling around with complex stuff is like catnip for people like us,
 
 Today I took a look at the source of the Google home page. You know, the site that renders a logo, 3 form elements, and maybe a dozen links.
 
-It has **170Kb** of inlined, minified Javascript built right into the page. Then there are furthermore over 300Kb of linked scripts. It's ridiculous. What does it even do? Other than use machine learning to deduce my gender, sexual orientation, mother's maiden name, and how long it's been since I last ate a pita -- obviously.
+It has **170Kb** of inlined, minified Javascript built right into the page. Then there are over 300Kb of linked scripts. It's ridiculous. What does it even do? Other than use machine learning to deduce my gender, sexual orientation, mother's maiden name, and how long it's been since I last ate a pita -- obviously.
 
 Actually, Google's site isn't so bad on this front, by comparison. A lot of sites have much more Javascript bloat, and do much less with it.
 

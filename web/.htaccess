@@ -5,3 +5,10 @@ RewriteBase /
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME}/index.md -f
 RewriteRule ^(.+\.md|.+\/)$ markdown.php?url=/$0 [L]
+
+# This redirects all image files with query strings to image parser
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteCond %{QUERY_STRING} ^([a-z0-9_]+)$ [NC]
+RewriteRule (.*\.(gif|jpg|jpeg|png|webp|wbmp))$ image.php?f=/$1&t=%1 [NC]
+
+ErrorDocument 404 /404.php

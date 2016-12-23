@@ -5,6 +5,7 @@ class TwigPage
 {
     protected static $template;
     protected static $fields = array();
+    public static $aborted   = false;
 
     public static function template($template)
     {
@@ -18,6 +19,21 @@ class TwigPage
         if (is_array($fields)) {
             self::$fields = array_replace_recursive(self::$fields, $fields);
         }
+    }
+
+    public static function abort($error)
+    {
+        switch ($error) {
+            case '404':
+                header("HTTP/1.0 404 Not Found");
+                break;
+            default:
+                header("HTTP/1.0 500 Server Error");
+        }
+        self::$aborted = true;
+        self::template('error/' . $error . '.twig');
+        echo self::render('Error: $error');
+        exit();
     }
 
     public static function render($body, $fields = array())

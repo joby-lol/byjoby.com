@@ -7,7 +7,7 @@ page_title: Please wipe your devices
 I bought a used Surface Pro 3 last week. Normally when you sell a device you factory reset it, and send it in the freshly wiped state. Windows 10 even has a factory reset that repeatedly over-writes the whole drive to fully remove all traces of your files.
 
 <figure>
-<img src="emailed-password.jpg">
+<img src="emailed-password.jpg?figure">
 <figcaption>
 This is not the generally though of as a "good" way of transferring ownership of a computer.
 </figcaption>
@@ -18,7 +18,7 @@ Not this silly, gentle, trusting soul. Instead, he sent it to me with his accoun
 I thought, OK, this is goofy, but whatever. *Certainly* he at least deleted his account, and created a new empty one to pass off to the device's new owner. There's no way he left it **signed in to his Google account.**
 
 <figure>
-<img src="email.jpg">
+<img src="email.jpg?figure">
 <figcaption>
 This is not my email account.
 </figcaption>
