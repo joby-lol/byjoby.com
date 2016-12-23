@@ -30,6 +30,6 @@ I think he didn't wipe it because there was something borked in the recovery par
 
 ## PSA: Wipe your devices!
 
-If you're selling a device, *please, please, please* wipe it first. If this guy had sent it to a less kindly person he could have wound up trolled *so badly* -- if he was lucky. He dodged a bullet selling it to somebody like me.
+If you're selling a device, *please, please, please* wipe it first. If this guy had sent it to a less kindly person he could have wound up trolled *so badly* -- if he was lucky. He dodged a bullet selling it to somebody as fiercely honest as me.
 
 The rest of you, don't do that.

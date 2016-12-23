@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{page_title}} :: {{site_name}}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#C42F1E">
+{% block html_head %}
+    <title>{{page_title}} :: {{site_name}}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/hs/hs-typography.css">
     <link rel="stylesheet" href="/css/hs/hs-menus.css">
     <link rel="stylesheet" href="/css/hs/hs-fa-linkicons.css">
     <link rel="stylesheet" href="/css/hs/hs-layout-1col.css">
     <link rel="stylesheet" href="/css/main.css">
+{% endblock %}
 </head>
 <body>
 
@@ -23,20 +25,25 @@
 {% block navigation %}
     <nav role="navigation">
         <div role="menubar">
-            <a role="menuitem" href="/blog/">Blog</a>
+            <a role="menuitem" href="/">Home</a>
+            <a role="menuitem" href="/long/">Long Form</a>
+            <a role="menuitem" href="/relics/">Relics</a>
             <a role="menuitem" href="/cv/">CV</a>
-            <a role="menuitem" href="/test/">Test</a>
         </div>
     </nav>
 {% endblock %}
 
+{% block main %}
     <main role="main">
         {{page_body|raw}}
     </main>
+{% endblock %}
 
+{% block footer %}
     <footer role="contentinfo">
         &copy; Joby Elliott
     </footer>
+{% endblock %}
 
 </body>
 </html>

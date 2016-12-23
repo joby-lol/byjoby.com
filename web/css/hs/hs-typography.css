@@ -64,6 +64,7 @@ h5,
 h6,
 p,
 aside,
+figure,
 ul,
 ol,
 blockquote,
@@ -80,6 +81,7 @@ h5:first-child,
 h6:first-child,
 p:first-child,
 aside:first-child,
+figure:first-child,
 ul:first-child,
 ol:first-child,
 blockquote:first-child,
@@ -96,6 +98,7 @@ h5:last-child,
 h6:last-child,
 p:last-child,
 aside:last-child,
+figure:last-child,
 ul:last-child,
 ol:last-child,
 blockquote:last-child,
@@ -109,7 +112,8 @@ address:last-child {
 
 blockquote,
 pre,
-aside {
+aside,
+figure {
   background: #eee;
   border: 1px solid #fafafa;
   box-shadow: 0 0 5pt rgba(0, 0, 0, 0.1);
@@ -126,10 +130,16 @@ nav {
 }
 
 
-/* asides */
+/* asides and figures */
 
-aside {
+aside,
+figure {
   font-size: 12pt;
+}
+
+figure img {
+  max-width:100%;
+  height:auto!important;
 }
 
 aside h1,
@@ -204,7 +214,8 @@ aside address {
     display: block;
     clear: both;
   }
-  *[role="main"] aside {
+  *[role="main"] aside,
+  *[role="main"] figure {
     max-width: 50%;
     float: right;
     clear: right;
@@ -212,7 +223,14 @@ aside address {
     margin-top: 0;
   }
 }
-
+figure:last-child,
+aside:last-child {
+    width:100%;
+    float:none;
+    max-width:100%;
+    margin-left:0;
+    margin-top:10pt;
+}
 
 /* print improvements */
 
