@@ -4,6 +4,8 @@ page_title: Home
 
 # Welcome
 
+<img src="portrait.png" alt="Portrait of Joby" style="float:right;max-width:30%;margin-left:10pt;">
+
 This page is being generated through a whole chain of medium-complicated stuff!
 
 Whether that is good or not is up for debate. I, of all people, should be bothered by this complexity. Few things are as important to me as the democratization of the web. To that end, no HTML, CSS or Javascript <em>(lol)</em> on this site will ever be <strike>minified</strike> <em>uglified</em>. View source to your heart's content, and then go out and build your own! Together we can break the silos and build a free-er, more durable, more interesting, and just plain weirder and more wonderful web.
