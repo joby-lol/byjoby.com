@@ -41,3 +41,29 @@ header[role='banner'] > h1 a {
     background: #C42F1E;
     color: white;
 }
+
+aside.branding-non-free {
+    color:#fff;
+    background:#156979;
+    color:#fff;
+}
+aside.branding-non-free:before {
+    content: "\f1f9";
+    display:inline-block;
+    float:right;
+    font-family: FontAwesome;
+    line-height:60pt;
+    font-size:60pt;
+    margin-left:10pt;
+    margin-top:-5pt;
+}
+aside.branding-non-free h2 {
+    margin:0;
+}
+aside.branding-non-free p {
+    margin:0;
+    margin-top:5px;
+}
+aside.branding-non-free a {
+    color:#fff;
+}
