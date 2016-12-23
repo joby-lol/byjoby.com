@@ -1,0 +1,165 @@
+/*!
+    Colorful Accordion Navigation
+    http://experimental.byjoby.com/2014/accordion-nav/
+    ---
+    You may use Colorful Accordion Navigation under the terms
+    of the MIT license. Basically that means you are free to use and modify
+    Colorful Accordion Navigation as long as this header is left 
+    intact. Copyright 2014, Joby Elliott
+*/
+.color-accordion-nav {
+  box-sizing: border-box;
+}
+.color-accordion-nav *, .color-accordion-nav *:before, .color-accordion-nav *:after {
+  box-sizing: inherit;
+}
+
+.color-accordion-nav {
+    display:block;
+    background:#eee;
+    padding:0;
+    overflow:hidden;
+    border-bottom:5px solid #999;
+    font-size:0;
+    overflow:auto;
+    line-height:0;
+}
+.color-accordion-nav:after {
+    content:"";
+    display:block;
+    clear:both;
+}
+.color-accordion-nav > ul,
+.color-accordion-nav > ul li {
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:inline-block;
+    white-space:nowrap;
+}
+.color-accordion-nav > ul a {
+    display:block;
+    background:#999;
+    color:#fff;
+    box-shadow:0 0 10px rgba(0,0,0,0.4);
+    position:relative;
+    z-index:1;
+    overflow:hidden;
+    transition:all 0.1s linear;
+    text-align:center;
+    text-decoration:none;
+    border-left:1px solid rgba(255,255,255,0.25);
+    border-right:1px solid #999;
+    font-size:18px;
+    line-height:40px;
+    padding:10px;
+}
+.color-accordion-nav > ul li:nth-child(even) a {
+    background:#888;
+    border-right-color:#888;
+}
+.color-accordion-nav > ul a.current,
+.color-accordion-nav > ul:hover a:hover,
+.color-accordion-nav.js-enabled a.hover {
+    width:10em;
+}
+.color-accordion-nav > ul a,
+.color-accordion-nav > ul:hover a,
+.color-accordion-nav.js-enabled ul:hover a:hover {
+    width:3em;
+}
+/*
+JS Enabled version
+*/
+.color-accordion-nav.js-enabled a {
+    transition:all 0.25s ease-in-out;
+    width:3em !important;
+}
+.color-accordion-nav.js-enabled a.hover {
+    width:10em !important;
+}
+/*
+Fancy z-indexing
+*/
+.color-accordion-nav > ul a {
+    z-index:1;
+}
+.color-accordion-nav > ul li.current a {
+    z-index:20;
+}
+.color-accordion-nav > ul li.current + li a {
+    z-index:19;
+    border-left:0;
+}
+.color-accordion-nav > ul li.current + li + li a {
+    z-index:18;
+    border-left:0;
+}
+.color-accordion-nav > ul li.current + li + li + li a {
+    z-index:17;
+    border-left:0;
+}
+.color-accordion-nav > ul li.current + li + li + li + li a {
+    z-index:16;
+    border-left:0;
+}
+.color-accordion-nav > ul li.current + li + li + li + li + li a {
+    z-index:15;
+    border-left:0;
+}
+.color-accordion-nav > ul li.current + li + li + li + li + li + li a {
+    z-index:14;
+    border-left:0;
+}
+.color-accordion-nav > ul li.current + li + li + li + li + li + li + li a {
+    z-index:13;
+    border-left:0;
+}
+.color-accordion-nav > ul li.current + li + li + li + li + li + li + li + li a {
+    z-index:12;
+    border-left:0;
+}
+.color-accordion-nav > ul li.current + li + li + li + li + li + li + li + li + li a {
+    z-index:11;
+    border-left:0;
+}
+.color-accordion-nav > ul li.current + li + li + li + li + li + li + li + li + li + li a {
+    z-index:10;
+    border-left:0;
+}
+.color-accordion-nav > ul li.current + li + li + li + li + li + li + li + li + li + li + li a {
+    z-index:9;
+    border-left:0;
+}
+.color-accordion-nav > ul li.current + li + li + li + li + li + li + li + li + li + li + li + li a {
+    z-index:8;
+    border-left:0;
+}
+.color-accordion-nav > ul li.current + li + li + li + li + li + li + li + li + li + li + li + li + li a {
+    z-index:7;
+    border-left:0;
+}
+.color-accordion-nav > ul li.current + li + li + li + li + li + li + li + li + li + li + li + li + li + li a {
+    z-index:6;
+    border-left:0;
+}
+.color-accordion-nav > ul li.current + li + li + li + li + li + li + li + li + li + li + li + li + li + li + li a {
+    z-index:5;
+    border-left:0;
+}
+.color-accordion-nav > ul li.current + li + li + li + li + li + li + li + li + li + li + li + li + li + li + li + li a {
+    z-index:4;
+    border-left:0;
+}
+.color-accordion-nav > ul li.current + li + li + li + li + li + li + li + li + li + li + li + li + li + li + li + li + li a {
+    z-index:3;
+    border-left:0;
+}
+.color-accordion-nav > ul li.current + li + li + li + li + li + li + li + li + li + li + li + li + li + li + li + li + li + li a {
+    z-index:2;
+    border-left:0;
+}
+.color-accordion-nav > ul li.current + li + li + li + li + li + li + li + li + li + li + li + li + li + li + li + li + li + li + li a {
+    z-index:1;
+    border-left:0;
+}
