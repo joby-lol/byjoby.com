@@ -1,0 +1,28 @@
+cache:
+  # set driver to "ephemeral" to disable caching
+  driver: filesystem
+  ttl:
+    # time to cache content folder searches, should be fairly short
+    content: 60
+    # time to cache full page output
+    output: 60
+    # time to cache asset generation searches, auto-busts and can be pretty long
+    assets: 3600
+
+theme:
+  css:
+    # whether to bundle CSS files
+    bundle: true
+    # amount of CSS to allow inlined on a page
+    max_inlined: 20480
+    # whether to minify CSS files
+    minify: true
+  js:
+    # whether to bundle JS files
+    bundle: true
+    # whether to minify JS files
+    minify: true
+    # whether to load JS files asynchronously with an inline loader script
+    # this is honestly just for pagespeed score bragging, and doesn't
+    # provide any real-world visible improvement
+    inline_loader: false

@@ -1,14 +1,15 @@
-RewriteEngine on
-RewriteBase /
+DirectoryIndex index.html index.php
 
-# This redirects all .md and index.md files to the markdown parser
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-RewriteCond %{REQUEST_FILENAME}/index.md -f
-RewriteRule ^(.+\.md|.+\/)$ markdown.php?url=/$0 [L]
+<IfModule mod_rewrite.c>
+RewriteEngine On
 
-# This redirects all image files with query strings to image parser
-RewriteCond %{REQUEST_FILENAME} -f
-RewriteCond %{QUERY_STRING} ^([a-z0-9_]+)$ [NC]
-RewriteRule (.*\.(gif|jpg|jpeg|png|webp|wbmp))$ image.php?f=/$1&t=%1 [NC]
+# If the requested path and file is not /index.php and the request
+# has not already been internally rewritten to the index.php script
+RewriteCond %{REQUEST_URI} !^/index\.php
+# and the requested path and file doesn't directly match a physical file
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}/index.html !-f
+# internally rewrite the request to the index.php script
+RewriteRule .* index.php [L]
 
-ErrorDocument 404 /404.php
+</IfModule>

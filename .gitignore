@@ -1,5 +1,13 @@
-/vendor/
-cache/*
-draft.*
+/vendor
+/logs/*.log
+/cache/*
+!/cache/README.md
 
-!.gitkeep
+/web/assets/*
+/web/**/*.html
+!/web/assets/README.md
+/web/**/*.html
+/config/env.yaml
+/config/env.*.yaml
+!/config/env.example.yaml
+/content

@@ -1,0 +1,12 @@
+# the settings in this file generally shouldn't need to be changed,
+# unless you're modifing the site template project considerably.
+
+cache:
+  directory: '${base_dir}/../cache/'
+
+assets:
+  output:
+    directory: '${base_dir}/assets/'
+    url: '@/assets/'
+
+debug_log: false

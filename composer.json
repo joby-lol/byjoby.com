@@ -1,24 +1,28 @@
 {
-    "name": "byjoby/www.byjoby.com",
-    "type": "project",
-    "authors": [
-        {
-            "name": "Joby Elliott",
-            "email": "joby@byjoby.com"
-        }
-    ],
-    "require": {
-        "doctrine/dbal": "^2.5",
-        "symfony/yaml": "^3.2",
-        "twig/twig": "^1.29",
-        "mnapoli/front-yaml": "^1.5"
-    },
+    "name": "jobyone/byjoby.com",
+    "description": "The source of byjoby.com",
     "autoload": {
-        "psr-4": {"byjoby\\": "byjoby"}
+        "psr-4": {
+            "Site\\": "src"
+        }
     },
+    "authors": [{
+        "name": "Joby Elliott",
+        "email": "code@byjoby.com"
+    }],
+    "require": {
+        "leafcutter/leafcutter": "dev-main",
+        "leafcutter/theme-core": "*",
+        "leafcutter/addon-static-pages": "*",
+        "leafcutter/addon-php-content": "*",
+        "leafcutter/addon-highlight": "*"
+    },
+    "type": "project",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "config": {
         "platform": {
-            "php": "7.0"
+            "php": "7.2.24"
         }
     }
 }

@@ -1,0 +1,16 @@
+site:
+  # Site address must be properly specified here, or you'll get 404 errors
+  # Needs to have a trailing slash, and include the http/https://
+  url: 'https://www.byjoby.com/'
+  content_dir  : '${base_dir}/../content'
+
+addons:
+  activate:
+    - php-content
+    - static-pages
+    - syntax-highlighting
+
+templates:
+  site:
+    # Site name to display in header/title
+    name: Ye' Olde Site By Joby
