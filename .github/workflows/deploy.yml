@@ -9,7 +9,7 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
-      - name: update content with Git
+      - name: update content with Git, install Composer dependencies
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
