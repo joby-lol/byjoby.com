@@ -371,12 +371,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/leafcutter-cms/leafcutter.git",
-                "reference": "28959f246d676f540ccfa7e00ba16caa70f08d66"
+                "reference": "577f5986b5db42e26dea6e9d35b817cacf305f04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leafcutter-cms/leafcutter/zipball/28959f246d676f540ccfa7e00ba16caa70f08d66",
-                "reference": "28959f246d676f540ccfa7e00ba16caa70f08d66",
+                "url": "https://api.github.com/repos/leafcutter-cms/leafcutter/zipball/577f5986b5db42e26dea6e9d35b817cacf305f04",
+                "reference": "577f5986b5db42e26dea6e9d35b817cacf305f04",
                 "shasum": ""
             },
             "require": {
@@ -418,7 +418,7 @@
                     "email": "jelliott@cs.unm.edu"
                 }
             ],
-            "time": "2020-09-16T23:27:16+00:00"
+            "time": "2020-09-16T23:36:47+00:00"
         },
         {
             "name": "leafcutter/theme-core",
