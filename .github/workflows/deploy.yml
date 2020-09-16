@@ -12,11 +12,11 @@ jobs:
       - name: update content with Git, install Composer dependencies
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
+          host: ${secrets.HOST}
+          username: ${secrets.USERNAME}
+          key: ${secrets.KEY}
           script: |
-            cd ${{ secrets.PATH }}
+            cd ${secrets.PATH}
             git pull
             git reset --hard $GITHUB_SHA
             composer install
