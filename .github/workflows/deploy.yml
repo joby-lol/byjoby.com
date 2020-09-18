@@ -17,7 +17,7 @@ jobs:
           key: ${{ secrets.KEY }}
           script: |
             cd ${{ secrets.PATH }}
-            git fetch
+            git pull
             git reset --hard $GITHUB_SHA
             git clean -f -d
             composer install
