@@ -10,3 +10,6 @@ assets:
     url: '@/assets/'
 
 debug_log: false
+
+templates:
+  primary_directory: '${base_dir}/../templates/'
