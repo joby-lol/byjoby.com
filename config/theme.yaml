@@ -16,8 +16,8 @@ theme:
     line-height-loose: 1.6em
     line-height-tight: 1.2em
     # colors
-    color-primary: '#43A047'
-    color-secondary: '#9E9D24'
+    color-primary: '#008F2B'
+    color-secondary: '#045F79'
     color-success: '#8BC34A'
     color-danger: '#f44336'
     color-warning: '#FF9800'
@@ -29,9 +29,9 @@ theme:
     color-a-hover: ${theme.variables.text-primary}
     color-a-active: ${theme.variables.text-success}
     color-dark-a: '#1a0dab'
-    color-dark-a-visited: '#609'
+    color-dark-a-visited: '#c0c'
     color-dark-a-focus: ${theme.variables.text-dark-info}
-    color-dark-a-hover: ${theme.variables.text-dark-info}
+    color-dark-a-hover: ${theme.variables.text-dark-primary}
     color-dark-a-active: ${theme.variables.text-dark-success}
     # light mode
     text-normal: '#444'
@@ -44,14 +44,14 @@ theme:
     text-info: ${theme.variables.color-info}
     text-muted: '#999'
     bg-normal: '#fafafa'
-    bg-accent: '#eee'
+    bg-accent: '#F5FFEA'
     bg-primary: ${theme.variables.color-primary}
     bg-secondary: ${theme.variables.color-secondary}
     bg-success: ${theme.variables.color-success}
     bg-danger: ${theme.variables.color-danger}
     bg-warning: ${theme.variables.color-warning}
     bg-info: ${theme.variables.color-info}
-    bg-muted: '#ddd'
+    bg-muted: '#eee'
     # dark mode
     text-dark-normal: '#ddd'
     text-dark-accent: '#eee'
