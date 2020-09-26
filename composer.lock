@@ -330,12 +330,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/leafcutter-cms/addon-static-pages.git",
-                "reference": "42a9aa9590b0b00fb4d8efdcf6e6e3985c0348be"
+                "reference": "971d681a78befff9812655a4a0bb1aa6ca291b26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leafcutter-cms/addon-static-pages/zipball/42a9aa9590b0b00fb4d8efdcf6e6e3985c0348be",
-                "reference": "42a9aa9590b0b00fb4d8efdcf6e6e3985c0348be",
+                "url": "https://api.github.com/repos/leafcutter-cms/addon-static-pages/zipball/971d681a78befff9812655a4a0bb1aa6ca291b26",
+                "reference": "971d681a78befff9812655a4a0bb1aa6ca291b26",
                 "shasum": ""
             },
             "require-dev": {
@@ -363,7 +363,7 @@
                 }
             ],
             "description": "Leafcutter static page addon. Creates static HTML files of page content, and injects asynchronous JS calls to update them.",
-            "time": "2020-07-15T03:46:04+00:00"
+            "time": "2020-09-25T19:15:01+00:00"
         },
         {
             "name": "leafcutter/leafcutter",
@@ -371,12 +371,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/leafcutter-cms/leafcutter.git",
-                "reference": "87e55718f01a4a868a5dc94044260b7f380cb111"
+                "reference": "0ae9b37fbd18ff8ff6a35817b8708dcb3a157ac0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leafcutter-cms/leafcutter/zipball/87e55718f01a4a868a5dc94044260b7f380cb111",
-                "reference": "87e55718f01a4a868a5dc94044260b7f380cb111",
+                "url": "https://api.github.com/repos/leafcutter-cms/leafcutter/zipball/0ae9b37fbd18ff8ff6a35817b8708dcb3a157ac0",
+                "reference": "0ae9b37fbd18ff8ff6a35817b8708dcb3a157ac0",
                 "shasum": ""
             },
             "require": {
@@ -418,7 +418,7 @@
                     "email": "jelliott@cs.unm.edu"
                 }
             ],
-            "time": "2020-09-23T18:20:24+00:00"
+            "time": "2020-09-25T19:11:59+00:00"
         },
         {
             "name": "leafcutter/theme-core",

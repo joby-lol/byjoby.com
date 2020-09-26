@@ -2,7 +2,7 @@ site:
   # Site address must be properly specified here, or you'll get 404 errors
   # Needs to have a trailing slash, and include the http/https://
   url: 'https://www.byjoby.com/'
-  content_dir  : '${base_dir}/../content'
+  content_dir  : '${directories.base}/content'
 
 addons:
   activate:
