@@ -9,6 +9,19 @@ addons:
     - php-content
     - static-pages
     - syntax-highlighting
+    - taxonomy
+  config:
+    leafcutter/addon-taxonomy:
+      taxonomies:
+        projects:
+          displayName: Projects
+          public: true
+          termsPerPage: 10
+          pagesPerPage: 10
+          patterns:
+            explicit:
+              pattern: '@project\{(?P<name>[^\}]+)\}'
+              keep: false
 
 templates:
   site:

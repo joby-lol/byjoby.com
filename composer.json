@@ -15,7 +15,8 @@
         "leafcutter/theme-core": "*",
         "leafcutter/addon-static-pages": "*",
         "leafcutter/addon-php-content": "*",
-        "leafcutter/addon-highlight": "*"
+        "leafcutter/addon-highlight": "*",
+        "leafcutter/addon-taxonomy": "dev-main"
     },
     "type": "project",
     "minimum-stability": "dev",
