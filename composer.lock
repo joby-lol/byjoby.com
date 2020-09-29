@@ -290,12 +290,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/leafcutter-cms/addon-php-content.git",
-                "reference": "d6a39e022abb6d6f9d371ee2144762dfec704fd3"
+                "reference": "d3c2df2363af9857752dad679445e5bcb36d8e89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leafcutter-cms/addon-php-content/zipball/d6a39e022abb6d6f9d371ee2144762dfec704fd3",
-                "reference": "d6a39e022abb6d6f9d371ee2144762dfec704fd3",
+                "url": "https://api.github.com/repos/leafcutter-cms/addon-php-content/zipball/d3c2df2363af9857752dad679445e5bcb36d8e89",
+                "reference": "d3c2df2363af9857752dad679445e5bcb36d8e89",
                 "shasum": ""
             },
             "require-dev": {
@@ -322,7 +322,7 @@
                 }
             ],
             "description": "Addon to allow .php files to be executed to generate content.",
-            "time": "2020-09-29T18:51:00+00:00"
+            "time": "2020-09-29T21:08:14+00:00"
         },
         {
             "name": "leafcutter/addon-static-pages",
@@ -414,12 +414,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/leafcutter-cms/leafcutter.git",
-                "reference": "82076fb9b61d50baa1993d1324c2f05fc11b51ee"
+                "reference": "d5ee1a018002f0ef2dbf41e9a3203e8197214622"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leafcutter-cms/leafcutter/zipball/82076fb9b61d50baa1993d1324c2f05fc11b51ee",
-                "reference": "82076fb9b61d50baa1993d1324c2f05fc11b51ee",
+                "url": "https://api.github.com/repos/leafcutter-cms/leafcutter/zipball/d5ee1a018002f0ef2dbf41e9a3203e8197214622",
+                "reference": "d5ee1a018002f0ef2dbf41e9a3203e8197214622",
                 "shasum": ""
             },
             "require": {
@@ -461,7 +461,7 @@
                     "email": "jelliott@cs.unm.edu"
                 }
             ],
-            "time": "2020-09-29T20:20:41+00:00"
+            "time": "2020-09-29T21:16:34+00:00"
         },
         {
             "name": "leafcutter/theme-core",
