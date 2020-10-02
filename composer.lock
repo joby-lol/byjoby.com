@@ -290,12 +290,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/leafcutter-cms/addon-php-content.git",
-                "reference": "d3c2df2363af9857752dad679445e5bcb36d8e89"
+                "reference": "e5fcd8f9d58ced9734962ef9e613f39ae6bc2468"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leafcutter-cms/addon-php-content/zipball/d3c2df2363af9857752dad679445e5bcb36d8e89",
-                "reference": "d3c2df2363af9857752dad679445e5bcb36d8e89",
+                "url": "https://api.github.com/repos/leafcutter-cms/addon-php-content/zipball/e5fcd8f9d58ced9734962ef9e613f39ae6bc2468",
+                "reference": "e5fcd8f9d58ced9734962ef9e613f39ae6bc2468",
                 "shasum": ""
             },
             "require-dev": {
@@ -322,7 +322,7 @@
                 }
             ],
             "description": "Addon to allow .php files to be executed to generate content.",
-            "time": "2020-09-29T21:08:14+00:00"
+            "time": "2020-10-02T04:22:40+00:00"
         },
         {
             "name": "leafcutter/addon-static-pages",
