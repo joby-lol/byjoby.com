@@ -371,12 +371,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/leafcutter-cms/addon-taxonomy.git",
-                "reference": "45258d5b88b7b66f63fbb481eccda4aec0bdf609"
+                "reference": "b9423980df6b50e06fed7d65baadc0c0fe4fbe08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leafcutter-cms/addon-taxonomy/zipball/45258d5b88b7b66f63fbb481eccda4aec0bdf609",
-                "reference": "45258d5b88b7b66f63fbb481eccda4aec0bdf609",
+                "url": "https://api.github.com/repos/leafcutter-cms/addon-taxonomy/zipball/b9423980df6b50e06fed7d65baadc0c0fe4fbe08",
+                "reference": "b9423980df6b50e06fed7d65baadc0c0fe4fbe08",
                 "shasum": ""
             },
             "require": {
@@ -406,7 +406,7 @@
                 }
             ],
             "description": "Addon for creating taxonomies and hashtag-style tagging",
-            "time": "2020-09-29T20:28:40+00:00"
+            "time": "2020-10-02T03:25:27+00:00"
         },
         {
             "name": "leafcutter/leafcutter",
