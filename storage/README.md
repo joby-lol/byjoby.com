@@ -1,3 +1,3 @@
 # Storage directory
 
-This directory should be writeable by PHP, and will contain data Leafcutter is intending to store permanently. Depending on your configuration backing up this folder may be a necessary part of backing up your site.
+Digraph uses this directory to store things it needs to keep forever. Primarily this means uploaded files and SQLite database files. Any backups of your site must include the full contents of this directory to be complete.

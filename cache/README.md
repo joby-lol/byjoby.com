@@ -1,3 +1,3 @@
 # Cache directory
 
-This directory should be writeable by PHP, and will contain cached data that Leafcutter uses to improve performance. You can delete its contents freely, but doing so on an active site will cause a slowdown as all the cached data is rebuilt.
+Digraph uses this directory to store things temporarily. It should generally not need to be cleared out manually, and also does not need to be backed up. Clearing it on a production site may cause temporary server load spikes as the cache is rebuilt from scratch.

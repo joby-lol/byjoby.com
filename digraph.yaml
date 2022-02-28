@@ -1,0 +1,18 @@
+fields:
+  site:
+    name: By Joby
+theme:
+  bundle_css: true
+  bundle_js: true
+  timezone: America/Denver
+cache:
+  path: "${paths.base}/cache"
+  ttl: 3600
+files:
+  ttl: 86400
+  css:
+    minify: true
+    sourcemap: false
+    keepimportantcomments: true
+images:
+  ttl: -1

@@ -1,45 +1,43 @@
 <?php
-namespace Leafcutter;
 
-use Monolog\Handler\StreamHandler;
-use Monolog\Logger;
+use DigraphCMS\Cache\CacheableState;
+use DigraphCMS\Cache\CachedInitializer;
+use DigraphCMS\Config;
+use DigraphCMS\Digraph;
+use DigraphCMS\Plugins\Plugins;
 
-require __DIR__ . '/../vendor/autoload.php';
+// load autoloader after cli server check
+require_once __DIR__ . "/../vendor/autoload.php";
 
-date_default_timezone_set("America/Denver");
-
-//initialize configuration
-$config = new Config\Config();
-$config['directories.base'] = realpath(__DIR__.'/..');
-$config->readDir(__DIR__ . '/../config/', null, true);
-$config->readFile(__DIR__ . '/../config/env.yaml', null, true);
-
-//initialize logger
-$logger = new Logger('leafcutter');
-if ($config['debug_log']) {
-    $logger->pushHandler(
-        new StreamHandler(__DIR__ . '/../logs/debug.log', Logger::DEBUG)
-    );
+// special case for running in PHP's built-in server
+// if you won't be using this, you can safely comment it out
+// this will save a negligible, but non-zero amount of time
+if (php_sapi_name() === 'cli-server') {
+    $r = @reset(explode('?', $_SERVER['REQUEST_URI'], 2));
+    if ($r == '/favicon.ico' || substr($r, 0, 7) == '/files/') {
+        return false;
+    }
 }
-$logger->pushHandler(
-    new StreamHandler(__DIR__ . '/../logs/error.log', Logger::ERROR)
+
+// otherwise we configure the initialization cache with an
+// infinite lifetime, as config shouldn't change once
+// a version of the site is deployed
+else {
+    CachedInitializer::configureCache(__DIR__ . '/../cache', -1);
+}
+
+// load plugins from composer
+Plugins::loadFromComposer(__DIR__ . '/../composer.lock');
+
+// initialize config
+CachedInitializer::run(
+    'initialization',
+    function (CacheableState $state) {
+        $state->mergeConfig(Config::parseYamlFile(__DIR__ . '/../digraph.yaml'), true);
+        $state->mergeConfig(Config::parseYamlFile(__DIR__ . '/../digraph-env.yaml'), true);
+        $state->config('paths.base', __DIR__ . '/..');
+    }
 );
 
-//initialize URL site and context
-URLFactory::beginSite($config['site.url']);
-URLFactory::beginContext(); //calling without argument sets context to site
-
-//normalize URL
-URLFactory::normalizeCurrent();
-
-//initialize CMS context
-Leafcutter::beginContext($config, $logger);
-$leafcutter = Leafcutter::get();
-$leafcutter->content()->addDirectory($config['site.content_dir']);
-
-//build response from URL
-$response = $leafcutter->buildResponse(URLFactory::current());
-
-//render response
-$response->renderHeaders();
-$response->renderContent();
+// build and render response
+Digraph::renderActualRequest();

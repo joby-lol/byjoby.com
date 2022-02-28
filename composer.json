@@ -1,29 +1,29 @@
 {
     "name": "jobyone/byjoby.com",
     "description": "The source of byjoby.com",
-    "autoload": {
-        "psr-4": {
-            "Site\\": "src"
-        }
-    },
+    "type": "project",
     "authors": [{
         "name": "Joby Elliott",
         "email": "code@byjoby.com"
     }],
-    "require": {
-        "leafcutter/leafcutter": "dev-main",
-        "leafcutter/theme-core": "*",
-        "leafcutter/addon-static-pages": "*",
-        "leafcutter/addon-php-content": "*",
-        "leafcutter/addon-highlight": "*",
-        "leafcutter/addon-taxonomy": "dev-main"
-    },
-    "type": "project",
     "minimum-stability": "dev",
     "prefer-stable": true,
+    "require": {
+        "digraphcms/digraph-core": "^2",
+        "league/oauth2-github": "^3.0",
+        "league/oauth2-google": "^4.0",
+        "league/oauth2-facebook": "^2.1"
+    },
     "config": {
-        "platform": {
-            "php": "7.2.24"
-        }
+        "optimize-autoloader": true,
+        "apcu-autoloader": true
+    },
+    "scripts": {
+        "migrate": [
+            "phinx migrate"
+        ],
+        "server": [
+            "php -S localhost:8000 -t web web/index.php"
+        ]
     }
 }
