@@ -35,9 +35,9 @@ jobs:
         uses: easingthemes/ssh-deploy@main
         env:
           ARGS: -crlpEtzi --delete
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.STAGING_KEY }}
           REMOTE_HOST: staging.byjoby.com
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          REMOTE_USER: ${{ secrets.STAGING_USER }}
           TARGET: /home/${{ secrets.STAGING_USER }}/staging.byjoby.com
           EXCLUDE: /.maintenance, /.htaccess, /env.yaml, /.git/, /.github/, /storage/, /cache/, /dev/, /web/index-dev.php
 
@@ -69,8 +69,8 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: staging.byjoby.com
-          username: ${{ secrets.REMOTE_USER }}
-          key: ${{ secrets.SSH_KEY}}
+          username: ${{ secrets.STAGING_USER }}
+          key: ${{ secrets.STAGING_KEY }}
           script_stop: true
           script: |
             cd /home/${{ secrets.STAGING_USER }}/staging.byjoby.com
@@ -81,7 +81,7 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: staging.byjoby.com
-          username: ${{ secrets.REMOTE_USER }}
-          key: ${{ secrets.SSH_KEY}}
+          username: ${{ secrets.STAGING_USER }}
+          key: ${{ secrets.STAGING_KEY }}
           script_stop: true
           script: rm /home/${{ secrets.STAGING_USER }}/staging.byjoby.com/.maintenance
