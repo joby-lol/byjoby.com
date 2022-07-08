@@ -17,6 +17,7 @@ jobs:
 
       # Shut down site and prepare environment
       # Clear entire cache, but only clear really old static stuff
+      # Do clear all CSS/JS from static files
       - name: Enter maintenance mode
         uses: appleboy/ssh-action@master
         with:
@@ -27,7 +28,10 @@ jobs:
           script: |
             touch /home/${{ secrets.DEPLOY_USER }}/byjoby.com/.maintenance
             rm -rf /home/${{ secrets.DEPLOY_USER }}/byjoby.com/cache/*
-            rm -rf /home/${{ secrets.DEPLOY_USER }}/static.byjoby.com/byjoby.com/*
+            find /home/${{ secrets.DEPLOY_USER }}/static.byjoby.com/byjoby.com -name '*.css' -delete
+            find /home/${{ secrets.DEPLOY_USER }}/static.byjoby.com/byjoby.com -name '*.js' -delete
+            find /home/${{ secrets.DEPLOY_USER }}/static.byjoby.com/byjoby.com -mtime +365 -delete
+            find /home/${{ secrets.DEPLOY_USER }}/static.byjoby.com/byjoby.com -type d -empty -delete
 
       # Do actual SSH deploy process, syncing changed/deleted files with server
       # doesn't sync some git/dev stuff, or env config
