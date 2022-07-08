@@ -1,11 +1,11 @@
-name: Deploy to staging
+name: Deploy to production
 on:
   push:
-    branches-ignore: [production]
+    branches: [production]
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    environment: staging
+    environment: production
     steps:
       # Basic checkout and composer setup
       - uses: actions/checkout@v2
@@ -16,18 +16,18 @@ jobs:
           args: --no-dev --ignore-platform-reqs --optimize-autoloader --apcu-autoloader
 
       # Shut down site and prepare environment
-      # Clear all cache and asset files, for staging we don't care about continuity
+      # Clear entire cache, but only clear really old static stuff
       - name: Enter maintenance mode
         uses: appleboy/ssh-action@master
         with:
-          host: staging.byjoby.com
+          host: byjoby.com
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_KEY }}
           script_stop: true
           script: |
-            touch /home/${{ secrets.DEPLOY_USER }}/staging.byjoby.com/.maintenance
-            rm -rf /home/${{ secrets.DEPLOY_USER }}/staging.byjoby.com/cache/*
-            rm -rf /home/${{ secrets.DEPLOY_USER }}/static-staging.byjoby.com/byjoby.com/*
+            touch /home/${{ secrets.DEPLOY_USER }}/byjoby.com/.maintenance
+            rm -rf /home/${{ secrets.DEPLOY_USER }}/byjoby.com/cache/*
+            rm -rf /home/${{ secrets.DEPLOY_USER }}/static.byjoby.com/byjoby.com/*
 
       # Do actual SSH deploy process, syncing changed/deleted files with server
       # doesn't sync some git/dev stuff, or env config
@@ -36,31 +36,31 @@ jobs:
         env:
           ARGS: -crlpEtzi --delete
           SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
-          REMOTE_HOST: staging.byjoby.com
+          REMOTE_HOST: byjoby.com
           REMOTE_USER: ${{ secrets.DEPLOY_USER }}
-          TARGET: /home/${{ secrets.DEPLOY_USER }}/staging.byjoby.com
+          TARGET: /home/${{ secrets.DEPLOY_USER }}/byjoby.com
           EXCLUDE: /.maintenance, /.htaccess, /env.yaml, /.git/, /.github/, /storage/, /cache/, /dev/, /web/index-dev.php
 
-      # TODO: copy production database and storage directory
+      # TODO: back up production database and storage directory
 
       # Run database migrations
       - name: Database migrations
         uses: appleboy/ssh-action@master
         with:
-          host: staging.byjoby.com
+          host: byjoby.com
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_KEY }}
           script_stop: true
           script: |
-            cd /home/${{ secrets.DEPLOY_USER }}/staging.byjoby.com
+            cd /home/${{ secrets.DEPLOY_USER }}/byjoby.com
             /usr/local/php81/bin/php vendor/bin/phinx migrate
 
       # Remove .maintenance file to reactivate site
       - name: Leave maintenance mode
         uses: appleboy/ssh-action@master
         with:
-          host: staging.byjoby.com
+          host: byjoby.com
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_KEY }}
           script_stop: true
-          script: rm /home/${{ secrets.DEPLOY_USER }}/staging.byjoby.com/.maintenance
+          script: rm /home/${{ secrets.DEPLOY_USER }}/byjoby.com/.maintenance
