@@ -15,15 +15,19 @@
         "league/oauth2-facebook": "^2.1"
     },
     "config": {
-        "optimize-autoloader": true,
-        "apcu-autoloader": true
+        "platform": {
+            "php": "8.1.0"
+        }
     },
     "scripts": {
+        "server": [
+            "php -S localhost:8000 -t web web/index-dev.php"
+        ],
         "migrate": [
             "phinx migrate"
         ],
-        "server": [
-            "php -S localhost:8000 -t web web/index.php"
+        "seed": [
+            "phinx seed:run"
         ]
     }
 }

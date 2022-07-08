@@ -1,0 +1,96 @@
+name: Deploy to staging
+on:
+  push:
+    branches-ignore: [production]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      # Basic checkout and composer setup
+      - uses: actions/checkout@v2
+      - uses: php-actions/composer@v6
+        with:
+          version: 2
+          php_version: 8.1
+          php_extensions: zip gd
+          args: --no-dev --ignore-platform-reqs --optimize-autoloader --apcu-autoloader
+
+      # Enter maintenance mode to shut down site
+      - name: Enter maintenance mode
+        uses: appleboy/ssh-action@master
+        with:
+          host: staging.byjoby.com
+          username: ${{ secrets.STAGING_USER }}
+          key: ${{ secrets.STAGING_KEY }}
+          script_stop: true
+          script: touch /home/${{ secrets.STAGING_USER }}/staging.byjoby.com/.maintenance
+
+      # Clear all cache and asset files, for staging we don't care about continuity
+      - name: Clear cache and files
+        uses: appleboy/ssh-action@master
+        with:
+          host: staging.byjoby.com
+          username: ${{ secrets.STAGING_USER }}
+          key: ${{ secrets.STAGING_KEY }}
+          script_stop: true
+          script: |
+            rm -rf /home/${{ secrets.STAGING_USER }}/staging.byjoby.com/cache/*
+            rm -rf /home/${{ secrets.STAGING_USER }}/static-staging.byjoby.com/byjoby.com/*
+
+      # Do actual SSH deploy process, syncing changed/deleted files with server
+      # doesn't sync some git/dev stuff, or env config
+      - name: Deploy
+        uses: easingthemes/ssh-deploy@main
+        env:
+          ARGS: -crlpEtzi --delete
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+          REMOTE_HOST: staging.byjoby.com
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: /home/${{ secrets.STAGING_USER }}/staging.byjoby.com
+          EXCLUDE: /.maintenance, /.htaccess, /env.yaml, /.git/, /.github/, /storage/, /cache/, /dev/, /web/index-dev.php
+
+      # - name: Copy production database
+      #   uses: appleboy/ssh-action@master
+      #   with:
+      #     host: staging.byjoby.com
+      #     username: ${{ secrets.REMOTE_USER }}
+      #     key: ${{ secrets.SSH_KEY}}
+      #     script_stop: true
+      #     script: |
+      #       cd ${{ secrets.REMOTE_PATH }}/prod
+      #       [ -f scripts/db-backup.php ] && /usr/local/php81/bin/php -f scripts/db-backup.php || echo "Backup script not deployed yet"
+      #       cd /home/${{ secrets.STAGING_USER }}/staging.byjoby.com
+      #       [ -f scripts/db-preptest.php ] && /usr/local/php81/bin/php -f scripts/db-preptest.php || echo "Test DB preparation script not deployed yet"
+      # - name: Copy production storage
+      #   uses: appleboy/ssh-action@master
+      #   with:
+      #     host: staging.byjoby.com
+      #     username: ${{ secrets.REMOTE_USER }}
+      #     key: ${{ secrets.SSH_KEY}}
+      #     script_stop: true
+      #     script: |
+      #       cd ${{ secrets.REMOTE_PATH }}
+      #       rsync -crlpEtzi --delete prod/storage/ test/storage
+
+      # Run database migrations
+      - name: Database migrations
+        uses: appleboy/ssh-action@master
+        with:
+          host: staging.byjoby.com
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SSH_KEY}}
+          script_stop: true
+          script: |
+            cd /home/${{ secrets.STAGING_USER }}/staging.byjoby.com
+            /usr/local/php81/bin/php vendor/bin/phinx migrate
+
+      # Remove .maintenance file to reactivate site
+      - name: Leave maintenance mode
+        uses: appleboy/ssh-action@master
+        with:
+          host: staging.byjoby.com
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SSH_KEY}}
+          script_stop: true
+          script: rm /home/${{ secrets.STAGING_USER }}/staging.byjoby.com/.maintenance

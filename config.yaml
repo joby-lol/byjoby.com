@@ -1,0 +1,78 @@
+fields:
+  site:
+    name: Joby's Site
+
+# Should be disabled in favor of actual cron jobs if possible
+cron:
+  route_enabled: false
+  poor_mans_cron: false
+
+# disable guest signin
+usermenu:
+  guest_signin: false
+
+# Generally should be fine for most sites
+theme:
+  bundle_css: true
+  bundle_js: true
+  head_cache_ttl: -1
+  active_themes: [solarized]
+themes:
+  solarized:
+    variables:
+      light:
+        background: "#fdf6e3"
+        color: "#313e41"
+        line-length: 45em
+        border-radius: 2px
+        border: 4px
+        shadow: calc(var(--grid)/8) calc(var(--grid)/4) var(--grid) rgba(5, 18, 28, 0.25)
+        shadow-inset: inset calc(var(--grid)/8) calc(var(--grid)/4) var(--grid) rgba(5, 18, 28, 0.25)
+        font:
+          content: serif
+          header: monospace
+          ui: monospace
+          code: monospace
+        cue:
+          interactive: "#2ca4f8"
+          information: "#1c699f"
+          safe: "#859900"
+          warning: "#e57b16"
+          danger: "#dc322f"
+        theme:
+          neutral: "#7d7970"
+          accent: "#566163"
+          highlight: "#b6d200"
+        link:
+          normal: "#268bd2"
+          visited: "#6c71c4"
+          focus: "#d33682"
+          active: "#6c71c4"
+      dark:
+        background: "#002b36"
+        color: "#b5c7c7"
+        shadow: calc(var(--grid)/8) calc(var(--grid)/4) var(--grid) rgba(5, 18, 28, 0.75)
+        shadow-inset: inset calc(var(--grid)/8) calc(var(--grid)/4) var(--grid) rgba(5, 18, 28, 0.75)
+
+errors:
+  display_trace: false
+
+cache:
+  ttl: 300
+  template_ttl: -1
+  content_ttl: 300
+
+files:
+  ttl: -1
+  css:
+    minify: true
+    sourcemap: false
+    keepimportantcomments: true
+
+user_sources:
+  cas:
+    providers:
+      dev:
+        active: false
+        name: Dev login provider
+        mock_cas_user: true

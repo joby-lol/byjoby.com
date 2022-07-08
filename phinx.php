@@ -15,17 +15,18 @@ Plugins::loadFromComposer(__DIR__ . '/composer.lock');
 CachedInitializer::run(
     'initialization',
     function (CacheableState $state) {
-        $state->mergeConfig(Config::parseYamlFile(__DIR__ . '/digraph.yaml'), true);
-        $state->mergeConfig(Config::parseYamlFile(__DIR__ . '/digraph-env.yaml'), true);
+        $state->mergeConfig(Config::parseYamlFile(__DIR__ . '/config.yaml'), true);
+        $state->mergeConfig(Config::parseYamlFile(__DIR__ . '/env.yaml'), true);
         $state->config('paths.base', __DIR__);
-    }
+    },
+    0
 );
 
 return
     [
         'paths' => [
             'migrations' => DB::migrationPaths(),
-            'seeds' => [],
+            'seeds' => array_merge(DB::seedPaths(), [__DIR__ . '/dev/seeds']),
         ],
         'environments' => [
             'default_migration_table' => 'phinxlog',
