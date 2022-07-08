@@ -28,10 +28,10 @@ jobs:
           script: |
             touch /home/${{ secrets.DEPLOY_USER }}/byjoby.com/.maintenance
             rm -rf /home/${{ secrets.DEPLOY_USER }}/byjoby.com/cache/*
-            find /home/${{ secrets.DEPLOY_USER }}/static.byjoby.com/byjoby.com -name '*.css' -delete
-            find /home/${{ secrets.DEPLOY_USER }}/static.byjoby.com/byjoby.com -name '*.js' -delete
-            find /home/${{ secrets.DEPLOY_USER }}/static.byjoby.com/byjoby.com -mtime +365 -delete
-            find /home/${{ secrets.DEPLOY_USER }}/static.byjoby.com/byjoby.com -type d -empty -delete
+            find /home/${{ secrets.DEPLOY_USER }}/static.byjoby.com/web/byjoby.com -name '*.css' -delete
+            find /home/${{ secrets.DEPLOY_USER }}/static.byjoby.com/web/byjoby.com -name '*.js' -delete
+            find /home/${{ secrets.DEPLOY_USER }}/static.byjoby.com/web/byjoby.com -mtime +365 -delete
+            find /home/${{ secrets.DEPLOY_USER }}/static.byjoby.com/web/byjoby.com -type d -empty -delete
 
       # Do actual SSH deploy process, syncing changed/deleted files with server
       # doesn't sync some git/dev stuff, or env config
