@@ -18,7 +18,7 @@ jobs:
       # Shut down site and prepare environment
       # Clear entire cache, but only clear really old static stuff
       # Do clear all CSS/JS from static files
-      - name: Enter maintenance mode
+      - name: Enter maintenance mode, prep environment
         uses: appleboy/ssh-action@master
         with:
           host: byjoby.com
@@ -44,8 +44,6 @@ jobs:
           REMOTE_USER: ${{ secrets.DEPLOY_USER }}
           TARGET: /home/${{ secrets.DEPLOY_USER }}/byjoby.com
           EXCLUDE: /.maintenance, /.htaccess, /env.yaml, /.git/, /.github/, /storage/, /cache/, /dev/, /web/index-dev.php
-
-      # TODO: back up production database and storage directory
 
       # Run database migrations
       - name: Database migrations
