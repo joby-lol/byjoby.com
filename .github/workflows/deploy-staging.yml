@@ -16,7 +16,8 @@ jobs:
           php_extensions: zip gd
           args: --no-dev --ignore-platform-reqs --optimize-autoloader --apcu-autoloader
 
-      # Enter maintenance mode to shut down site
+      # Shut down site and prepare environment
+      # Clear all cache and asset files, for staging we don't care about continuity
       - name: Enter maintenance mode
         uses: appleboy/ssh-action@master
         with:
@@ -24,17 +25,8 @@ jobs:
           username: ${{ secrets.STAGING_USER }}
           key: ${{ secrets.STAGING_KEY }}
           script_stop: true
-          script: touch /home/${{ secrets.STAGING_USER }}/staging.byjoby.com/.maintenance
-
-      # Clear all cache and asset files, for staging we don't care about continuity
-      - name: Clear cache and files
-        uses: appleboy/ssh-action@master
-        with:
-          host: staging.byjoby.com
-          username: ${{ secrets.STAGING_USER }}
-          key: ${{ secrets.STAGING_KEY }}
-          script_stop: true
           script: |
+            touch /home/${{ secrets.STAGING_USER }}/staging.byjoby.com/.maintenance
             rm -rf /home/${{ secrets.STAGING_USER }}/staging.byjoby.com/cache/*
             rm -rf /home/${{ secrets.STAGING_USER }}/static-staging.byjoby.com/byjoby.com/*
 
