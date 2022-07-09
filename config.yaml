@@ -13,6 +13,7 @@ usermenu:
 
 # Generally should be fine for most sites
 theme:
+  timezone: America/Denver
   bundle_css: true
   bundle_js: true
   head_cache_ttl: -1
