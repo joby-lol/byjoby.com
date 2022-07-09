@@ -10,39 +10,36 @@ $user = Config::get('db.user');
 $pass = Config::get('db.pass');
 // configure staging/prod db names
 $staging_db = 'byjobycom_test';
-$production_pdo = 'byjobycom_production';
+$pdo = 'byjobycom_production';
 
 // connect to PDOs
-$staging_pdo = new PDO(
-    sprintf('mysql:host=mysql.byjoby.com;dbname=%s', $staging_db),
-    $user,
-    $pass
-);
-$production_pdo = new PDO(
-    sprintf('mysql:host=mysql.byjoby.com;dbname=%s', $staging_db),
+$pdo = new PDO(
+    sprintf('mysql:host=mysql.byjoby.com', $staging_db),
     $user,
     $pass
 );
 
 // drop all staging tables
-echo "Dropping staging tables";
-$staging_pdo->exec('SET FOREIGN_KEY_CHECKS=0;');
-foreach ($staging_pdo->query('SHOW TABLES')->fetchAll() as $r) {
-    $query = $staging_pdo->prepare('DROP TABLE ' . $r[0]);
+echo "Dropping staging tables" . PHP_EOL;
+$pdo->exec('SET FOREIGN_KEY_CHECKS=0;');
+foreach ($pdo->query(sprintf('SHOW TABLES from `%s`', $staging_db))->fetchAll() as $r) {
+    $query = $pdo->prepare(sprintf(
+        'DROP TABLE `%s`.`%s`',
+        $staging_db,
+        $r[0]
+    ));
     if ($query->execute()) {
         echo "Dropped staging table " . $r[0] . PHP_EOL;
     } else {
         throw new \Exception("Error dropping staging table " . $r[0] . ': ' . $query->errorInfo());
     }
 }
-$staging_pdo->exec('SET FOREIGN_KEY_CHECKS=1;');
 
 // copy all production tables into staging
-echo "Copying production tables to staging";
-$production_pdo->exec('SET FOREIGN_KEY_CHECKS=0;');
-foreach ($production_pdo->query('SHOW TABLES')->fetchAll() as $r) {
+echo "Copying production tables to staging" . PHP_EOL;
+foreach ($pdo->query(sprintf('SHOW TABLES from `%s`', $production_db))->fetchAll() as $r) {
     // copy table structure
-    $query = $production_pdo->prepare(sprintf(
+    $query = $pdo->prepare(sprintf(
         'CREATE TABLE `%s`.`%s` LIKE `%s`.`%s`',
         $staging_db,
         $r[0],
@@ -55,7 +52,7 @@ foreach ($production_pdo->query('SHOW TABLES')->fetchAll() as $r) {
         throw new \Exception("Error copying table structure " . $r[0] . ': ' . $query->errorInfo());
     }
     // copy table data
-    $query = $production_pdo->prepare(sprintf(
+    $query = $pdo->prepare(sprintf(
         'INSERT `%s`.`%s` SELECT * FROM `%s`.`%s`',
         $staging_db,
         $r[0],
@@ -68,4 +65,3 @@ foreach ($production_pdo->query('SHOW TABLES')->fetchAll() as $r) {
         throw new \Exception("Error copying table structure " . $r[0] . ': ' . $query->errorInfo());
     }
 }
-$production_pdo->exec('SET FOREIGN_KEY_CHECKS=1;');
