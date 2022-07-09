@@ -10,7 +10,7 @@ $user = Config::get('db.user');
 $pass = Config::get('db.pass');
 // configure staging/prod db names
 $staging_db = 'byjobycom_test';
-$pdo = 'byjobycom_production';
+$production_db = 'byjobycom_production';
 
 // connect to PDOs
 $pdo = new PDO(
