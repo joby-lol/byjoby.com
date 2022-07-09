@@ -41,7 +41,7 @@ jobs:
           TARGET: /home/${{ secrets.DEPLOY_USER }}/staging.byjoby.com
           EXCLUDE: /.maintenance, /.htaccess, /env.yaml, /.git/, /.github/, /storage/, /cache/, /dev/, /web/index-dev.php
 
-      # TODO: copy production database and storage directory
+      # copy production database and storage directory
       - name: Copy production database and storage
         uses: appleboy/ssh-action@master
         with:
@@ -51,7 +51,8 @@ jobs:
           script_stop: true
           script: |
             cd /home/${{ secrets.DEPLOY_USER }}/staging.byjoby.com
-            /usr/local/php81/bin/php vendor/bin/phinx migrate
+            /usr/local/php81/bin/php vendor/bin/phinx scripts/copy-production.php
+            rsync -crlpEtzi --delete /home/${{ secrets.DEPLOY_USER }}/byjoby.com/storage/ /home/${{ secrets.DEPLOY_USER }}/staging.byjoby.com/storage
 
       # Run database migrations
       - name: Database migrations
