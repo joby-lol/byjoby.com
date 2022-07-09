@@ -17,17 +17,17 @@ jobs:
 
       # Shut down site and prepare environment
       # Clear all cache and asset files, for staging we don't care about continuity
-      - name: Enter maintenance mode
+      - name: Enter maintenance mode, prep environment
         uses: appleboy/ssh-action@master
         with:
-          host: staging.byjoby.com
+          host: byjoby.com
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_KEY }}
           script_stop: true
           script: |
             touch /home/${{ secrets.DEPLOY_USER }}/staging.byjoby.com/.maintenance
             rm -rf /home/${{ secrets.DEPLOY_USER }}/staging.byjoby.com/cache/*
-            rm -rf /home/${{ secrets.DEPLOY_USER }}/static-staging.byjoby.com/byjoby.com/*
+            rm -rf /home/${{ secrets.DEPLOY_USER }}/static.byjoby.com/staging.byjoby.com/*
 
       # Do actual SSH deploy process, syncing changed/deleted files with server
       # doesn't sync some git/dev stuff, or env config
@@ -36,18 +36,29 @@ jobs:
         env:
           ARGS: -crlpEtzi --delete
           SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
-          REMOTE_HOST: staging.byjoby.com
+          REMOTE_HOST: byjoby.com
           REMOTE_USER: ${{ secrets.DEPLOY_USER }}
           TARGET: /home/${{ secrets.DEPLOY_USER }}/staging.byjoby.com
           EXCLUDE: /.maintenance, /.htaccess, /env.yaml, /.git/, /.github/, /storage/, /cache/, /dev/, /web/index-dev.php
 
-      # TODO: copy production database and storage directory
+      # copy production database and storage directory
+      - name: Copy production database and storage
+        uses: appleboy/ssh-action@master
+        with:
+          host: byjoby.com
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          script_stop: true
+          script: |
+            cd /home/${{ secrets.DEPLOY_USER }}/staging.byjoby.com
+            /usr/local/php81/bin/php scripts/copy-production.php
+            rsync -crlpEtzi --delete /home/${{ secrets.DEPLOY_USER }}/byjoby.com/storage/ /home/${{ secrets.DEPLOY_USER }}/staging.byjoby.com/storage
 
       # Run database migrations
       - name: Database migrations
         uses: appleboy/ssh-action@master
         with:
-          host: staging.byjoby.com
+          host: byjoby.com
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_KEY }}
           script_stop: true
@@ -59,7 +70,7 @@ jobs:
       - name: Leave maintenance mode
         uses: appleboy/ssh-action@master
         with:
-          host: staging.byjoby.com
+          host: byjoby.com
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_KEY }}
           script_stop: true
