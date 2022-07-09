@@ -20,3 +20,12 @@ DirectoryIndex index.html index.php
 
 # disable session auto start so that it isn't used if not needed
 php_value session.auto_start 0
+
+# Fix headers up for proper browser caching
+Header unset cache-control
+
+# Remove ETags
+<IfModule mod_headers.c>
+    Header unset ETag
+</IfModule>
+FileETag None
