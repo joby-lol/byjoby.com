@@ -51,7 +51,7 @@ jobs:
           script_stop: true
           script: |
             cd /home/${{ secrets.DEPLOY_USER }}/staging.byjoby.com
-            /usr/local/php81/bin/php vendor/bin/phinx scripts/copy-production.php
+            /usr/local/php81/bin/php scripts/copy-production.php
             rsync -crlpEtzi --delete /home/${{ secrets.DEPLOY_USER }}/byjoby.com/storage/ /home/${{ secrets.DEPLOY_USER }}/staging.byjoby.com/storage
 
       # Run database migrations
