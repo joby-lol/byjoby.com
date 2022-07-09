@@ -5,9 +5,6 @@ use DigraphCMS\Config;
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../initialize.php';
 
-// get username/password from config
-$user = Config::get('db.user');
-$pass = Config::get('db.pass');
 // configure staging/prod db names
 $staging_db = 'byjobycom_test';
 $production_db = 'byjobycom_production';
@@ -15,8 +12,8 @@ $production_db = 'byjobycom_production';
 // connect to PDOs
 $pdo = new PDO(
     sprintf('mysql:host=mysql.byjoby.com', $staging_db),
-    $user,
-    $pass
+    Config::get('db.user'),
+    Config::get('db.pass')
 );
 
 // drop all staging tables
@@ -47,7 +44,7 @@ foreach ($pdo->query(sprintf('SHOW TABLES from `%s`', $production_db))->fetchAll
         $r[0]
     ));
     if ($query->execute()) {
-        echo "Copied table structure " . $r[0] . PHP_EOL;
+        echo "Copied structure from " . $r[0] . PHP_EOL;
     } else {
         throw new \Exception("Error copying table structure " . $r[0] . ': ' . $query->errorInfo());
     }
@@ -60,8 +57,8 @@ foreach ($pdo->query(sprintf('SHOW TABLES from `%s`', $production_db))->fetchAll
         $r[0]
     ));
     if ($query->execute()) {
-        echo "Copied table structure " . $r[0] . PHP_EOL;
+        echo "Copied data from " . $r[0] . PHP_EOL;
     } else {
-        throw new \Exception("Error copying table structure " . $r[0] . ': ' . $query->errorInfo());
+        throw new \Exception("Error copying table data " . $r[0] . ': ' . $query->errorInfo());
     }
 }
