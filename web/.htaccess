@@ -1,5 +1,15 @@
-DirectoryIndex index.html index.php
+# Bits and bobs to enable hosted stats
+ErrorDocument 401 "Error"
+ErrorDocument 403 "Error"
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteCond %{REQUEST_URI} ^/(stats|failed_auth\.html).*$ [NC]
+  RewriteRule . - [L]
+</IfModule> 
 
+# Digraph rewriting
+DirectoryIndex index.html index.php
 <IfModule mod_rewrite.c>
   RewriteEngine on
   RewriteCond %{REQUEST_FILENAME} !-f
