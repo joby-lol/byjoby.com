@@ -26,7 +26,6 @@ $production_pdo = new PDO(
 
 // drop all staging tables
 echo "Dropping staging tables";
-$staging_pdo->beginTransaction();
 $staging_pdo->exec('SET FOREIGN_KEY_CHECKS=0;');
 foreach ($staging_pdo->query('SHOW TABLES')->fetchAll() as $r) {
     $query = $staging_pdo->prepare('DROP TABLE ' . $r[0]);
@@ -37,11 +36,9 @@ foreach ($staging_pdo->query('SHOW TABLES')->fetchAll() as $r) {
     }
 }
 $staging_pdo->exec('SET FOREIGN_KEY_CHECKS=1;');
-$staging_pdo->commit();
 
 // copy all production tables into staging
 echo "Copying production tables to staging";
-$production_pdo->beginTransaction();
 $production_pdo->exec('SET FOREIGN_KEY_CHECKS=0;');
 foreach ($production_pdo->query('SHOW TABLES')->fetchAll() as $r) {
     // copy table structure
@@ -72,4 +69,3 @@ foreach ($production_pdo->query('SHOW TABLES')->fetchAll() as $r) {
     }
 }
 $production_pdo->exec('SET FOREIGN_KEY_CHECKS=1;');
-$production_pdo->commit();
