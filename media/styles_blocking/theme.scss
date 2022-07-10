@@ -1,11 +1,9 @@
 #header {
-  background-color: var(--background-dark);
-  color: var(--color-darker);
   font-family: $font-code;
   padding: $grid;
   column-gap: $grid*2;
   row-gap: $grid/2;
-  background-color: #1f2428;
+  background-color: #000;
   color: #d1d5da;
   display: flex;
   justify-content: space-between;
@@ -22,7 +20,7 @@
   .header__branding__machine,
   .header__branding__path,
   .header__branding__prompt {
-    font-size: 0.82rem;
+    font-size: 1rem;
   }
 
   .header__branding__machine {
@@ -44,11 +42,27 @@
 
   .header__branding__cursor {
     color: #79b8ff;
-    animation: header__branding__cursor-blink 1s steps(2) infinite;
+    animation: header__branding__cursor-blink 1.5s linear infinite;
   }
 
   @keyframes header__branding__cursor-blink {
     0% {
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 0;
+    }
+
+    60% {
+      opacity: 1;
+    }
+
+    90% {
+      opacity: 1;
+    }
+
+    100% {
       opacity: 0;
     }
   }
@@ -110,12 +124,18 @@
   }
 }
 
+.menubar {
+  font-family: $font-code;
+}
+
 #main-nav {
   background: var(--background-darker);
   color: var(--color-lighter);
+  font-family: $font-code;
+  font-size: 0.82rem;
 
   >.menuitem {
-    border-top: 2px solid transparent;
+    border-top: 4px solid transparent;
 
     >a {
       padding: $grid;
@@ -186,5 +206,10 @@
 
 #footer {
   font-family: $font-code;
-  font-size: 0.5rem;
+  font-size: 0.6rem;
+  padding: $grid*2;
+
+  p {
+    max-width: 60em;
+  }
 }
