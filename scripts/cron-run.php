@@ -6,6 +6,8 @@ use DigraphCMS\URL\URL;
 use DigraphCMS\URL\URLs;
 use DigraphCMS\URL\WaybackMachine;
 
+if (file_exists(__DIR__.'/../.maintenance')) exit();
+
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../initialize.php';
 
