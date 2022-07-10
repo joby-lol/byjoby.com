@@ -180,6 +180,10 @@
   }
 }
 
+#content {
+  padding: $grid;
+}
+
 #footer {
   font-family: $font-code;
   font-size: 0.5rem;
