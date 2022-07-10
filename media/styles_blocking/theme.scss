@@ -9,19 +9,28 @@
   justify-content: space-between;
   align-items: center;
 
+  .header__branding {
+    font-size: 0;
+    overflow: hidden;
+  }
+
   .header__branding__machine {
+    font-size: 1rem;
     color: #85e87f;
     max-width: 100%;
     overflow: hidden;
   }
 
   .header__branding__path {
+    font-size: 1rem;
     color: #79b8ff;
     max-width: 100%;
     overflow: hidden;
+    white-space: break-word;
   }
 
   .header__branding__cursor {
+    font-size: 1rem;
     color: #79b8ff;
     animation: header__branding__cursor-blink 1s steps(2) infinite;
   }
@@ -34,6 +43,7 @@
 
   .header__usermenu {
     opacity: 0.5;
+    min-width: fit-content;
 
     &:hover,
     &:focus,
