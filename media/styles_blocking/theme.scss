@@ -11,10 +11,14 @@
 
   .header__branding__machine {
     color: #85e87f;
+    max-width: 100%;
+    overflow: hidden;
   }
 
   .header__branding__path {
     color: #79b8ff;
+    max-width: 100%;
+    overflow: hidden;
   }
 
   .header__branding__cursor {
