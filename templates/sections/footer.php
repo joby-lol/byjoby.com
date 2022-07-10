@@ -10,11 +10,15 @@ use DigraphCMS\URL\URL;
         | <a href="https://twitter.com/jobyone" target="_blank">@jobyone</a>
     </p>
     <p>
-        This site respects your privacy.
+        This website respects your privacy.
+    </p>
+    <p>
         It isn't doing any wild behavioral tracking or sharing your browsing data with creepy ad networks.
         It doesn't even use any CDNs for things like fonts or JS libraries.
         No Google Analytics either, or any client-side analytics at all.
         If I want to know how much traffic I get I just look at the Apache access logs.
+    </p>
+    <p>
         Yes. All that is actually possible. You just have to care about it.
     </p>
     <p>

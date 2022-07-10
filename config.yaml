@@ -1,6 +1,6 @@
 fields:
   site:
-    name: Joby's Site
+    name: byjoby.com
 
 # Should be disabled in favor of actual cron jobs if possible
 cron:

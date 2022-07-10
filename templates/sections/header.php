@@ -7,7 +7,7 @@ use DigraphCMS\UI\UserMenu;
 ?>
 <header id="header">
     <div class="header__branding">
-        <span class="header__branding__machine"><span style="font-weight:200;"><?php echo Session::uuid(); ?></span><span style="font-weight:800;">@jobys_site</span></span>:
+        <span class="header__branding__machine"><span style="font-weight:200;"><?php echo Session::uuid(); ?></span>@<span style="font-weight:800;">byjoby</span></span>:
         <span class="header__branding__path"><?php echo Context::url()->path(); ?></span>
         <span class="header__branding__prompt">
             $&nbsp;<span class="header__branding__cursor">&#x2588;</span>
