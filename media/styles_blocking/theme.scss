@@ -1,0 +1,41 @@
+#header {
+  background-color: var(--background-dark);
+  color: var(--color-darker);
+  font-family: $font-ui;
+
+  h1 {
+    font-family: inherit;
+
+    a {
+      text-decoration: none !important;
+    }
+  }
+}
+
+#main-nav {
+  background: var(--background-darker);
+  color: var(--color-lighter);
+
+  >.menuitem {
+    border-top: 2px solid transparent;
+
+    >a {
+      padding: $grid;
+    }
+
+    &:hover,
+    &:active,
+    &:focus,
+    &:focus-within,
+    &.menuitem--current,
+    &.menuitem--current-parent {
+      border-color: var(--theme-highlight);
+      opacity: 1;
+      background-color: var(--background);
+    }
+  }
+}
+
+#content #main-content>h1 {
+  border-bottom: 0;
+}
