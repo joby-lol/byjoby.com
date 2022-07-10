@@ -26,8 +26,8 @@ themes:
         background-dark: "#f6f8fa"
         background-darker: "#e8eaed"
         background-light: "#f5f6fe"
-        background-lighter: "#e9ebfa"
-        background-bright: "#e9ebfa"
+        background-lighter: "#e8f3ff"
+        background-bright: "#deeeff"
         color: "#16192f"
         line-length: 45em
         border-radius: 4px
