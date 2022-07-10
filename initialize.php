@@ -10,7 +10,6 @@ use DigraphCMS\Cache\CacheableState;
 use DigraphCMS\Cache\CachedInitializer;
 use DigraphCMS\Config;
 use DigraphCMS\Content\Router;
-use DigraphCMS\DB\DB;
 use DigraphCMS\Media\Media;
 use DigraphCMS\Plugins\Plugins;
 use DigraphCMS\UI\Templates;

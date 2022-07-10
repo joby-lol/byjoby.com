@@ -1,0 +1,35 @@
+@font-face {
+  font-family: "Hack";
+  src:
+    url("https://static.byjoby.com/fonts/hack/hack-regular-webfont.woff2") format("woff2"),
+    url("https://static.byjoby.com/fonts/hack/hack-regular-webfont.woff") format("woff");
+  font-style: normal;
+  font-weight: 300 500;
+}
+
+@font-face {
+  font-family: "Hack";
+  src:
+    url("https://static.byjoby.com/fonts/hack/hack-italic-webfont.woff2") format("woff2"),
+    url("https://static.byjoby.com/fonts/hack/hack-italic-webfont.woff") format("woff");
+  font-style: italic;
+  font-weight: 300 500;
+}
+
+@font-face {
+  font-family: "Hack";
+  src:
+    url("https://static.byjoby.com/fonts/hack/hack-bold-webfont.woff2") format("woff2"),
+    url("https://static.byjoby.com/fonts/hack/hack-bold-webfont.woff") format("woff");
+  font-style: normal;
+  font-weight: 600 900;
+}
+
+@font-face {
+  font-family: "Hack";
+  src:
+    url("https://static.byjoby.com/fonts/hack/hack-bolditalic-webfont.woff2") format("woff2"),
+    url("https://static.byjoby.com/fonts/hack/hack-bolditalic-webfont.woff") format("woff");
+  font-style: italic;
+  font-weight: 600 900;
+}

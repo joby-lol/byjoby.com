@@ -27,7 +27,7 @@ jobs:
           script: |
             touch /home/${{ secrets.DEPLOY_USER }}/staging.byjoby.com/.maintenance
             rm -rf /home/${{ secrets.DEPLOY_USER }}/staging.byjoby.com/cache/*
-            rm -rf /home/${{ secrets.DEPLOY_USER }}/static.byjoby.com/staging.byjoby.com/*
+            rm -rf /home/${{ secrets.DEPLOY_USER }}/static.byjoby.com/web/staging.byjoby.com/*
 
       # Do actual SSH deploy process, syncing changed/deleted files with server
       # doesn't sync some git/dev stuff, or env config

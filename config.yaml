@@ -17,43 +17,53 @@ theme:
   bundle_css: true
   bundle_js: true
   head_cache_ttl: -1
-  active_themes: [solarized]
+  active_themes: [hub]
 themes:
-  solarized:
+  hub:
     variables:
       light:
-        background: "#fdf6e3"
-        color: "#313e41"
+        background: "#ffffff"
+        background-dark: "#f6f8fa"
+        background-darker: "#e8eaed"
+        background-light: "#f5f6fe"
+        background-lighter: "#e9ebfa"
+        background-bright: "#e9ebfa"
+        color: "#16192f"
         line-length: 45em
-        border-radius: 2px
-        border: 4px
-        shadow: calc(var(--grid)/8) calc(var(--grid)/4) var(--grid) rgba(5, 18, 28, 0.25)
-        shadow-inset: inset calc(var(--grid)/8) calc(var(--grid)/4) var(--grid) rgba(5, 18, 28, 0.25)
+        border-radius: 4px
+        border: 1px
+        shadow: calc(var(--grid)/8) calc(var(--grid)/4) var(--grid) rgba(22, 25, 47, 0.25)
+        shadow-inset: inset calc(var(--grid)/8) calc(var(--grid)/4) var(--grid) rgba(22, 25, 47, 0.25)
         font:
-          content: serif
-          header: monospace
-          ui: monospace
-          code: monospace
+          content: '"Open Sans", sans-serif'
+          header: '"Open Sans", sans-serif'
+          ui: '"Open Sans", sans-serif'
+          code: '"Hack", monospace'
         cue:
-          interactive: "#2ca4f8"
-          information: "#1c699f"
-          safe: "#859900"
-          warning: "#e57b16"
-          danger: "#dc322f"
+          interactive: "#2188ff"
+          information: "#0096d7"
+          safe: "#28a745"
+          warning: "#ddb100"
+          danger: "#e51400"
         theme:
-          neutral: "#7d7970"
-          accent: "#566163"
-          highlight: "#b6d200"
+          neutral: "#6a737d"
+          accent: "#5a96da"
+          highlight: "#f9826c"
         link:
-          normal: "#268bd2"
-          visited: "#6c71c4"
-          focus: "#d33682"
-          active: "#6c71c4"
+          normal: "#0969da"
+          visited: "#5876bf"
+          focus: "#0969da"
+          active: "#0969da"
       dark:
-        background: "#002b36"
-        color: "#b5c7c7"
-        shadow: calc(var(--grid)/8) calc(var(--grid)/4) var(--grid) rgba(5, 18, 28, 0.75)
-        shadow-inset: inset calc(var(--grid)/8) calc(var(--grid)/4) var(--grid) rgba(5, 18, 28, 0.75)
+        background: "#24292e"
+        color: "#c9dee8"
+        shadow: calc(var(--grid)/8) calc(var(--grid)/4) var(--grid) rgba(31, 36, 40, 0.75)
+        shadow-inset: inset calc(var(--grid)/8) calc(var(--grid)/4) var(--grid) rgba(31, 36, 40, 0.75)
+        link:
+          normal: "#0a6aff"
+          visited: "#698de5"
+          focus: "#0a6aff"
+          active: "#0a6aff"
 
 errors:
   display_trace: false
