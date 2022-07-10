@@ -18,6 +18,7 @@ theme:
   bundle_js: true
   head_cache_ttl: -1
   active_themes: [hub]
+
 themes:
   hub:
     variables:
@@ -70,8 +71,9 @@ errors:
 
 cache:
   ttl: 300
+  dom_ttl: 600
   template_ttl: -1
-  content_ttl: 300
+  content_ttl: 60
 
 files:
   ttl: -1
