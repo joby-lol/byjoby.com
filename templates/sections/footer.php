@@ -5,7 +5,8 @@ use DigraphCMS\URL\URL;
 ?>
 <footer id="footer">
     <p>
-        A project by Joby. For more stuff by me check out:
+        This website is a pet project of Joby Elliott.
+        For more stuff by me check out:
         <a href="https://github.com/jobyone" target="_blank">github/jobyone</a>
         | <a href="https://twitter.com/jobyone" target="_blank">@jobyone</a>
     </p>
