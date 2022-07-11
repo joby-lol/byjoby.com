@@ -170,7 +170,7 @@
   }
 }
 
-@mixin crtEffect {
+@mixin crtOverlayEffect {
   position: relative;
 
   &:after {
@@ -203,6 +203,6 @@
   }
 }
 
-@mixin crtText {
+@mixin crtTextEffect {
   animation: crt-textShadow 1.6s infinite;
 }

@@ -1,5 +1,5 @@
 #header {
-  @include crtEffect();
+  @include crtOverlayEffect();
 
   .header__usermenu {
     z-index: 100;
@@ -7,7 +7,7 @@
 }
 
 .header__branding {
-  @include crtText;
+  @include crtTextEffect;
 
   a {
     color: inherit;
