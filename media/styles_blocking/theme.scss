@@ -139,9 +139,14 @@
   color: var(--color-lighter);
   font-family: $font-code;
   font-size: 0.82rem;
+  padding: 0 $grid/4;
 
   >.menuitem {
-    border-top: 4px solid transparent;
+    border-top: $grid/2 solid transparent;
+    border-top-left-radius: $grid/2;
+    border-top-right-radius: $grid/2;
+    margin: 0 $grid/4;
+    margin-top: -$grid/2;
 
     >a {
       padding: $grid;
