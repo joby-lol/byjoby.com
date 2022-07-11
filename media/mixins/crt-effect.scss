@@ -172,11 +172,6 @@
 
 @mixin crtEffect {
   position: relative;
-  animation: crt-textShadow 1.6s infinite;
-}
-
-.header__branding {
-  position: relative;
 
   &:after {
     content: " ";
@@ -206,4 +201,8 @@
     background-size: 100% 2px, 3px 100%;
     pointer-events: none;
   }
+}
+
+@mixin crtText {
+  animation: crt-textShadow 1.6s infinite;
 }
