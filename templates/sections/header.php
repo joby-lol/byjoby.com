@@ -13,7 +13,7 @@ $breadcrumb = Cache::get(
         $path = '';
         foreach (explode('/', Context::url()->path()) as $part) {
             if ($part) {
-                $path .= '/' . $part;
+                $path .= '<span style="font-size:0;"> </span>/' . $part;
                 if (strpos($part, '.') === false) $url = new URL($path . '/');
                 else $url = new URL($path);
                 $part = sprintf('<a href="%s">%s</a>', $url, $part);
