@@ -56,8 +56,8 @@ themes:
           focus: "#0969da"
           active: "#0969da"
       dark:
-        background: "#24292e"
-        color: "#c9dee8"
+        background: "#191d20"
+        color: "#e1e4e8"
         shadow: calc(var(--grid)/8) calc(var(--grid)/4) var(--grid) rgba(31, 36, 40, 0.75)
         shadow-inset: inset calc(var(--grid)/8) calc(var(--grid)/4) var(--grid) rgba(31, 36, 40, 0.75)
         link:
