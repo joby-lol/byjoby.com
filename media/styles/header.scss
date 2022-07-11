@@ -18,3 +18,19 @@
     }
   }
 }
+
+.theme-menu {
+  h1 {
+    display: none;
+  }
+
+  h2 {
+    margin: 0 !important;
+  }
+}
+
+.menubar--usermenu .menuitem--theme>.menuitem__link::after {
+  content: 'dark_mode' !important;
+  font-size: 1.2rem !important;
+  transform: translateY(-0.1em) !important;
+}
