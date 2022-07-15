@@ -2,14 +2,37 @@
 
 namespace DigraphCMS_Plugins\byjoby\blog;
 
+use DigraphCMS\Context;
 use DigraphCMS\DB\DB;
 use DigraphCMS\Plugins\AbstractPlugin;
+use DigraphCMS\UI\Format;
+use DigraphCMS\UI\Pagination\PaginatedList;
+use DigraphCMS\UI\Sidebar\SidebarEvent;
 use DigraphCMS\URL\URL;
 use DigraphCMS\Users\Permissions;
 use DigraphCMS\Users\User;
 
 class Blog extends AbstractPlugin
 {
+    public static function onSidebar_top(SidebarEvent $s)
+    {
+        if (!Context::pageUUID()) return;
+        $posts = Blog::forPage(Context::pageUUID());
+        if ($posts->count()) {
+            $list = new PaginatedList(
+                $posts,
+                function (BlogPost $post) {
+                    return sprintf(
+                        '<strong>%s</strong> <small>%s</small>',
+                        $post->url()->html(),
+                        Format::date($post->time())
+                    );
+                }
+            );
+            $s->add('<h1>Blog posts</h1>' . $list);
+        }
+    }
+
     public static function select(): BlogSelect
     {
         return (new BlogSelect(

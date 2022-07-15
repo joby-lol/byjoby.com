@@ -31,12 +31,12 @@ use DigraphCMS\UI\Theme;
     echo Templates::render('sections/header.php');
     echo Templates::render('sections/navbar.php');
     ?>
-    <main id="content">
+    <main id="page-wrapper">
         <?php
         Breadcrumb::print();
         echo new ActionMenu;
         Notifications::printSection();
-        echo '<div id="main-content">';
+        echo '<div id="article">';
         echo Context::response()->content();
         echo '</div>';
         ?>
