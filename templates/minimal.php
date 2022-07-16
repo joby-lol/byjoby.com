@@ -32,14 +32,16 @@ use DigraphCMS\UI\Theme;
     echo Templates::render('sections/navbar.php');
     ?>
     <main id="page-wrapper">
-        <?php
-        Breadcrumb::print();
-        echo new ActionMenu;
-        Notifications::printSection();
-        echo '<div id="article">';
-        echo Context::response()->content();
-        echo '</div>';
-        ?>
+        <div id="content">
+            <?php
+            Breadcrumb::print();
+            echo new ActionMenu;
+            Notifications::printSection();
+            echo '<div id="article">';
+            echo Context::response()->content();
+            echo '</div>';
+            ?>
+        </div>
     </main>
     <?php
     echo Templates::render('sections/footer.php');
