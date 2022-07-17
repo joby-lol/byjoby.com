@@ -2,6 +2,7 @@
 
 use DigraphCMS\Cache\Cache;
 use DigraphCMS\Context;
+use DigraphCMS\Search\SearchForm;
 use DigraphCMS\UI\UserMenu;
 use DigraphCMS\URL\URL;
 use DigraphCMS\Users\Users;
@@ -34,6 +35,15 @@ if ($user = Users::current()) {
     $user = 'guest';
 }
 
+$userMenu = new UserMenu;
+
+if (Context::url()->route() == 'search') {
+    $search = '';
+} else {
+    $search = new SearchForm;
+    $search->queryField()->setAttribute('placeholder', 'search');
+}
+
 ?>
 <header id="header">
     <div class="header__branding">
@@ -43,7 +53,10 @@ if ($user = Users::current()) {
             $&nbsp;<span class="header__branding__cursor">&#x2588;</span>
         </span>
     </div>
+    <div class="header__search">
+        <?php echo $search; ?>
+    </div>
     <div class="header__usermenu">
-        <?php echo new UserMenu; ?>
+        <?php echo $userMenu; ?>
     </div>
 </header>
