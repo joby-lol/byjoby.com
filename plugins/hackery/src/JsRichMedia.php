@@ -16,6 +16,8 @@ use Thunder\Shortcode\Shortcode\ShortcodeInterface;
 
 class JsRichMedia extends AbstractRichMedia
 {
+    protected $addedToTheme = false;
+
     function prepareForm(FormWrapper $form, $create = false)
     {
         // name input
@@ -90,10 +92,15 @@ class JsRichMedia extends AbstractRichMedia
                 },
                 md5($this->uuid() . $this->updated()->getTimestamp())
             );
-            if ($this['mode'] == 'blocking') Theme::addBlockingPageJs($file);
-            elseif ($this['mode'] == 'async') Theme::addPageJs($file);
-            else Theme::addInlinePageJs($file);
-            echo '<!-- added js ' . $this->uuid() . ' "' . $this->name() . '" to the rendering pipeline -->';
+            if (!$this->addedToTheme) {
+                $this->addedToTheme = true;
+                if ($this['mode'] == 'blocking') Theme::addBlockingPageJs($file);
+                elseif ($this['mode'] == 'async') Theme::addPageJs($file);
+                else Theme::addInlinePageJs($file);
+                echo '<!-- added js ' . $this->uuid() . ' "' . $this->name() . '" to the rendering pipeline -->';
+            } else {
+                echo '<!-- already added js ' . $this->uuid() . ' "' . $this->name() . '" to the rendering pipeline -->';
+            }
         } catch (\Throwable $th) {
             Notifications::printError(implode('<br>', [
                 '<strong>Javascript Error</strong>',

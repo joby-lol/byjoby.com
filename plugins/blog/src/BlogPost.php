@@ -19,6 +19,7 @@ class BlogPost extends Page
         if (!$this->card) {
             $this->card = new DIV;
             $this->card->addClass('blog-summary-card');
+            $this->card->addClass('page--' . $this->uuid());
             $this->card->addChild(sprintf('<h1><a href="%s">%s</a></h1>', $this->url(), $this->postTitle()));
             $this->card->addChild(sprintf('<p class="blog-meta">%s by %s</p>', Format::datetime($this->time()), $this->createdBy()));
             $this->card->addChild($this->blurb());

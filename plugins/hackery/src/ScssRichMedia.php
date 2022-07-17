@@ -16,6 +16,8 @@ use Thunder\Shortcode\Shortcode\ShortcodeInterface;
 
 class ScssRichMedia extends AbstractRichMedia
 {
+    protected $addedToTheme = false;
+
     function prepareForm(FormWrapper $form, $create = false)
     {
         // name input
@@ -40,9 +42,10 @@ class ScssRichMedia extends AbstractRichMedia
         // scope
         $scope = (new Field('Automatic scope', $scopeInput = new SELECT([
             'none' => 'None - compile as written',
-            'article' => 'Article wrapper'
+            'parent' => 'Parent-specific wrapper',
+            'article' => 'Any article wrapper',
         ])))
-            ->setDefault($this['scope'] ?? 'article')
+            ->setDefault($this['scope'] ?? 'page')
             ->addForm($form);
 
         // handler
@@ -60,6 +63,7 @@ class ScssRichMedia extends AbstractRichMedia
         // decide on scope wrapper
         $scope = null;
         if ($this['scope'] == 'article') $scope = '#article';
+        elseif ($this['scope'] == 'parent') $scope = '.page--' . $this->parent();
         // apply scope wrapper if specified
         if ($scope) $script = implode(PHP_EOL, ["$scope {", $script, "}"]);
         // return
@@ -81,9 +85,14 @@ class ScssRichMedia extends AbstractRichMedia
                 },
                 [$this->uuid(), $this->updated()->getTimestamp()]
             );
-            if ($this['mode'] == 'blocking') Theme::addBlockingPageCss($file);
-            else Theme::addInternalPageCss($file);
-            echo '<!-- added scss ' . $this->uuid() . ' "' . $this->name() . '" to the rendering pipeline -->';
+            if (!$this->addedToTheme) {
+                $this->addedToTheme = true;
+                if ($this['mode'] == 'blocking') Theme::addBlockingPageCss($file);
+                else Theme::addInternalPageCss($file);
+                echo '<!-- added scss ' . $this->uuid() . ' "' . $this->name() . '" to the rendering pipeline -->';
+            } else {
+                echo '<!-- already added scss ' . $this->uuid() . ' "' . $this->name() . '" to the rendering pipeline -->';
+            }
         } catch (\Throwable $th) {
             Notifications::printError(implode('<br>', [
                 '<strong>Javascript Error</strong>',
