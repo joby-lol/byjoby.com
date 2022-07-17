@@ -6,6 +6,7 @@ use DigraphCMS\CodeMirror\CodeMirrorField;
 use DigraphCMS\FS;
 use DigraphCMS\HTML\Forms\Field;
 use DigraphCMS\HTML\Forms\FormWrapper;
+use DigraphCMS\HTML\Forms\SELECT;
 use DigraphCMS\Media\DeferredFile;
 use DigraphCMS\Media\JS;
 use DigraphCMS\RichMedia\Types\AbstractRichMedia;
@@ -28,11 +29,50 @@ class JsRichMedia extends AbstractRichMedia
             ->setDefault($this['script'])
             ->addForm($form);
 
+        // mode
+        $mode = (new Field('Embed mode', new SELECT([
+            'async' => 'Asynchronous',
+            'blocking' => 'Blocking',
+            'inline' => 'Inline'
+        ])))
+            ->setDefault($this['mode'] ?? 'blocking')
+            ->addForm($form);
+
+        // automatic wrapping options
+        $wrap = (new Field('Automatic wrappers', new SELECT([
+            'none' => 'None - embed exactly as written',
+            'domloaded' => 'DOMContentLoaded listener',
+            'isolate' => 'Isolated scope'
+        ])))
+            ->setDefault($this['wrap'] ?? 'domloaded')
+            ->addForm($form);
+
         // handler
-        $form->addCallback(function () use ($name, $script) {
+        $form->addCallback(function () use ($name, $script, $mode, $wrap) {
             $this->name($name->value());
             $this['script'] = $script->value();
+            $this['mode'] = $mode->value();
+            $this['wrap'] = $wrap->value();
         });
+    }
+
+    function script(): string
+    {
+        $script = $this['script'];
+        if ($this['wrap'] == 'domloaded') {
+            $script = implode(PHP_EOL, [
+                "document.addEventListener('DOMContentLoaded', (e) => {",
+                $script,
+                "});"
+            ]);
+        } elseif ($this['wrap'] == 'isolate') {
+            $script = implode(PHP_EOL, [
+                "(()=>{",
+                $script,
+                "})();"
+            ]);
+        }
+        return $script;
     }
 
     function shortCode(ShortcodeInterface $code): ?string
@@ -41,11 +81,11 @@ class JsRichMedia extends AbstractRichMedia
         try {
             $file = new DeferredFile(
                 $this->uuid() . '.js',
-                function(DeferredFile $file){
+                function (DeferredFile $file) {
                     FS::touch($file->path());
                     file_put_contents(
                         $file->path(),
-                        JS::js($this['script'])
+                        JS::js($this->script())
                     );
                 },
                 md5($this->uuid() . $this->updated()->getTimestamp())

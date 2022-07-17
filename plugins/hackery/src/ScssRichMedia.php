@@ -6,6 +6,7 @@ use DigraphCMS\CodeMirror\CodeMirrorField;
 use DigraphCMS\FS;
 use DigraphCMS\HTML\Forms\Field;
 use DigraphCMS\HTML\Forms\FormWrapper;
+use DigraphCMS\HTML\Forms\SELECT;
 use DigraphCMS\Media\CSS;
 use DigraphCMS\Media\DeferredFile;
 use DigraphCMS\RichMedia\Types\AbstractRichMedia;
@@ -28,11 +29,41 @@ class ScssRichMedia extends AbstractRichMedia
             ->setDefault($this['script'])
             ->addForm($form);
 
+        // mode
+        $mode = (new Field('Embed mode', new SELECT([
+            'async' => 'Asynchronous',
+            'blocking' => 'Blocking'
+        ])))
+            ->setDefault($this['mode'] ?? 'async')
+            ->addForm($form);
+
+        // scope
+        $scope = (new Field('Automatic scope', $scopeInput = new SELECT([
+            'none' => 'None - compile as written',
+            'article' => 'Article wrapper'
+        ])))
+            ->setDefault($this['scope'] ?? 'article')
+            ->addForm($form);
+
         // handler
-        $form->addCallback(function () use ($name, $script) {
+        $form->addCallback(function () use ($name, $script, $mode, $scope) {
             $this->name($name->value());
             $this['script'] = $script->value();
+            $this['mode'] = $mode->value();
+            $this['scope'] = $scope->value();
         });
+    }
+
+    function script(): string
+    {
+        $script = $this['script'];
+        // decide on scope wrapper
+        $scope = null;
+        if ($this['scope'] == 'article') $scope = '#article';
+        // apply scope wrapper if specified
+        if ($scope) $script = implode(PHP_EOL, ["$scope {", $script, "}"]);
+        // return
+        return $script;
     }
 
     function shortCode(ShortcodeInterface $code): ?string
@@ -45,7 +76,7 @@ class ScssRichMedia extends AbstractRichMedia
                     FS::touch($file->path());
                     file_put_contents(
                         $file->path(),
-                        CSS::scss($this['script'])
+                        CSS::scss($this->script())
                     );
                 },
                 [$this->uuid(), $this->updated()->getTimestamp()]
