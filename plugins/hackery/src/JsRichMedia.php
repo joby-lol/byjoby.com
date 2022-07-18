@@ -7,6 +7,7 @@ use DigraphCMS\FS;
 use DigraphCMS\HTML\Forms\Field;
 use DigraphCMS\HTML\Forms\FormWrapper;
 use DigraphCMS\HTML\Forms\SELECT;
+use DigraphCMS\HTML\Icon;
 use DigraphCMS\Media\DeferredFile;
 use DigraphCMS\Media\JS;
 use DigraphCMS\RichMedia\Types\AbstractRichMedia;
@@ -17,6 +18,11 @@ use Thunder\Shortcode\Shortcode\ShortcodeInterface;
 class JsRichMedia extends AbstractRichMedia
 {
     protected $addedToTheme = false;
+
+    public function icon()
+    {
+        return new Icon('code');
+    }
 
     function prepareForm(FormWrapper $form, $create = false)
     {

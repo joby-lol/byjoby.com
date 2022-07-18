@@ -9,12 +9,19 @@ use DigraphCMS\HTML\Forms\Field;
 use DigraphCMS\HTML\Forms\Fields\CheckboxField;
 use DigraphCMS\HTML\Forms\FormWrapper;
 use DigraphCMS\HTML\Forms\SELECT;
+use DigraphCMS\HTML\Icon;
 use DigraphCMS\RichMedia\Types\AbstractRichMedia;
 use DigraphCMS\UI\Notifications;
 use Thunder\Shortcode\Shortcode\ShortcodeInterface;
 
 class PhpRichMedia extends AbstractRichMedia
 {
+
+    public function icon()
+    {
+        return new Icon('code');
+    }
+
     function prepareForm(FormWrapper $form, $create = false)
     {
         // name input
