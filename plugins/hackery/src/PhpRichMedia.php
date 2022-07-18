@@ -41,7 +41,7 @@ class PhpRichMedia extends AbstractRichMedia
             300 => '5 minutes',
             3600 => '1 hour',
             86400 => '24 hours',
-            0 => 'Do not cache (actually 1 second)',
+            1 => 'Do not cache (actually 1 second)',
             -1 => 'Cache indefinitely'
         ])))
             ->setDefault($this['cache'] ?? 60)
