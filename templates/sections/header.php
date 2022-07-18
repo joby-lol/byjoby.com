@@ -53,9 +53,9 @@ if (Context::url()->route() == 'search') {
             $&nbsp;<span class="header__branding__cursor">&#x2588;</span>
         </span>
     </div>
-    <div class="header__search">
+    <!-- <div class="header__search">
         <?php echo $search; ?>
-    </div>
+    </div> -->
     <div class="header__usermenu">
         <?php echo $userMenu; ?>
     </div>
