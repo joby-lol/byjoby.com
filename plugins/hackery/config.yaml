@@ -1,0 +1,4 @@
+rich_media_types:
+  phpscript: \DigraphCMS_Plugins\byjoby\hackery\PhpRichMedia
+  javascript: \DigraphCMS_Plugins\byjoby\hackery\JsRichMedia
+  scss: \DigraphCMS_Plugins\byjoby\hackery\ScssRichMedia

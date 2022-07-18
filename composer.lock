@@ -346,12 +346,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/digraph-cms/digraph-core.git",
-                "reference": "047ece0bb195c4fbf07cee85a67c7597243a2d9d"
+                "reference": "1b63277556bf88c155de93fc5409dc8b030414b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/digraph-cms/digraph-core/zipball/047ece0bb195c4fbf07cee85a67c7597243a2d9d",
-                "reference": "047ece0bb195c4fbf07cee85a67c7597243a2d9d",
+                "url": "https://api.github.com/repos/digraph-cms/digraph-core/zipball/1b63277556bf88c155de93fc5409dc8b030414b2",
+                "reference": "1b63277556bf88c155de93fc5409dc8b030414b2",
                 "shasum": ""
             },
             "require": {
@@ -423,7 +423,7 @@
                 "issues": "https://github.com/digraph-cms/digraph-core/issues",
                 "source": "https://github.com/digraph-cms/digraph-core/tree/v2"
             },
-            "time": "2022-07-16T00:31:47+00:00"
+            "time": "2022-07-18T00:12:51+00:00"
         },
         {
             "name": "donatj/phpuseragentparser",

@@ -1,6 +1,6 @@
 #header {
   font-family: $font-code;
-  padding: 0;
+  padding: $grid/2;
   column-gap: $grid*2;
   row-gap: $grid/2;
   display: flex;
@@ -17,8 +17,7 @@
     overflow: hidden;
     min-width: 20em;
     flex-grow: 10;
-    order: 2;
-    padding: $grid*2 $grid;
+    order: 100;
   }
 
   .header__branding__machine,
@@ -79,14 +78,36 @@
     }
   }
 
+  .header__search {
+    order: 2;
+    font-size: smaller;
+
+    input {
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      font-family: $font-code;
+      color: inherit;
+      font-size: inherit;
+      background-color: var(--theme-highlight-a10);
+    }
+
+    .submit-button {
+
+      &:hover,
+      &:focus {
+        background-color: var(--theme-highlight);
+        color: var(--theme-highlight-inv);
+      }
+    }
+  }
+
   .header__usermenu {
     opacity: 0.5;
     min-width: fit-content;
     display: flex;
     justify-content: flex-end;
-    flex-grow: 1;
     order: 1;
-    padding: $grid/2 $grid;
 
     &:hover,
     &:focus,
@@ -150,11 +171,11 @@
   padding: 0 $grid/4;
 
   >.menuitem {
-    border-top: $grid/2 solid transparent;
-    border-top-left-radius: $grid/2;
-    border-top-right-radius: $grid/2;
+    border-top: $grid/4 solid transparent;
+    border-top-left-radius: $grid/4;
+    border-top-right-radius: $grid/4;
     margin: 0 $grid/4;
-    margin-top: -$grid/2;
+    margin-top: -$grid/4;
 
     >a {
       padding: $grid;
