@@ -41,7 +41,7 @@ class PhpRichMedia extends AbstractRichMedia
             300 => '5 minutes',
             3600 => '1 hour',
             86400 => '24 hours',
-            0 => 'Do not cache',
+            0 => 'Do not cache (actually 1 second)',
             -1 => 'Cache indefinitely'
         ])))
             ->setDefault($this['cache'] ?? 60)
@@ -53,10 +53,11 @@ class PhpRichMedia extends AbstractRichMedia
             ->addForm($form);
 
         // handler
-        $form->addCallback(function () use ($name, $script, $cache) {
+        $form->addCallback(function () use ($name, $script, $cache, $context) {
             $this->name($name->value());
             $this['script'] = $script->value();
             $this['cache'] = $cache->value();
+            $this['context'] = $context->value();
         });
     }
 
