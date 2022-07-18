@@ -14,6 +14,7 @@ use DigraphCMS\Users\User;
 
 class Blog extends AbstractPlugin
 {
+
     public static function onSidebar_top(SidebarEvent $s)
     {
         if (!Context::pageUUID()) return;
@@ -39,8 +40,19 @@ class Blog extends AbstractPlugin
             DB::query()->from('page')
         ))
             ->where('class = "blog"')
+            ->where('(${data.draft} IS NULL OR NOT ${data.draft})')
             ->where('COALESCE(${data.time}, created) <= ?', [time()])
             ->order('sort_weight ASC')
+            ->order('COALESCE(${data.time}, created) DESC');
+    }
+
+    public static function draftsAndPending(): BlogSelect
+    {
+        return (new BlogSelect(
+            DB::query()->from('page')
+        ))
+            ->where('class = "blog"')
+            ->where('(${data.draft} OR COALESCE(${data.time}, created) > ?)', [time()])
             ->order('COALESCE(${data.time}, created) DESC');
     }
 
@@ -62,6 +74,7 @@ class Blog extends AbstractPlugin
     public function onStaticUrlPermissions_blog(URL $url, User $user)
     {
         if ($url->action() == 'new_post') return Permissions::inMetaGroup('blog__edit', $user);
+        elseif ($url->action() == 'drafts_and_pending') return Permissions::inMetaGroup('blog__edit', $user);
         else return null;
     }
 }

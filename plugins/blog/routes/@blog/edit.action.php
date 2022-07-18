@@ -31,6 +31,11 @@ $sticky = (new CheckboxField('Make post sticky'))
     ->setDefault($post->sortWeight() == -1);
 $form->addChild($sticky);
 
+$draft = (new CheckboxField('Post is a draft'))
+    ->addTip('Automatically sets a publish time if it is missing when toggling from draft to non-draft state')
+    ->setDefault($post['draft']);
+$form->addChild($draft);
+
 $time = (new DatetimeField('Manually set date'))
     ->setStep(60)
     ->setDefault($post->customTime())
@@ -44,6 +49,11 @@ if ($form->ready()) {
     if ($sticky->value()) $post->setSortWeight(-1);
     else $post->setSortWeight(0);
     $post->setTime($time->value());
+    // if we're toggling from draft to non-draft, set time to now if it's not set
+    if ($draft->value() && !$post['draft'] && !$post->customTime()) $post->setTime(new DateTime);
+    // set draft state
+    $post['draft'] = $draft->value();
+    // update
     $post->update();
     throw new RedirectException($post->url());
 }

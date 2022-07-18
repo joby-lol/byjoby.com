@@ -32,6 +32,9 @@ $form->addChild($content);
 $sticky = new CheckboxField('Make post sticky');
 $form->addChild($sticky);
 
+$draft = new CheckboxField('Post is a draft');
+$form->addChild($draft);
+
 $time = (new DatetimeField('Manually set date'))
     ->setStep(60)
     ->addTip('Leave blank to use the current time')
@@ -45,6 +48,7 @@ if ($form->ready()) {
     $post->richContent('body', $content->value());
     if ($sticky->value()) $post->setSortWeight(-1);
     if ($time->value()) $post->setTime($time->value());
+    $post['draft'] = $draft->value();
     $post->insert($parent ? $parent->uuid() : null);
     throw new RedirectException($post->url());
 }

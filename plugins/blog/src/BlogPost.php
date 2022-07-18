@@ -7,7 +7,6 @@ use DigraphCMS\Content\Page;
 use DigraphCMS\HTML\DIV;
 use DigraphCMS\UI\Format;
 use DigraphCMS\URL\URL;
-use Urodoz\Truncate\TruncateService;
 
 class BlogPost extends Page
 {
