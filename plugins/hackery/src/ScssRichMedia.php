@@ -3,6 +3,7 @@
 namespace DigraphCMS_Plugins\byjoby\hackery;
 
 use DigraphCMS\CodeMirror\CodeMirrorField;
+use DigraphCMS\Context;
 use DigraphCMS\FS;
 use DigraphCMS\HTML\Forms\Field;
 use DigraphCMS\HTML\Forms\FormWrapper;
@@ -49,6 +50,7 @@ class ScssRichMedia extends AbstractRichMedia
         $scope = (new Field('Automatic scope', $scopeInput = new SELECT([
             'none' => 'None - compile as written',
             'parent' => 'Parent-specific wrapper',
+            'context' => 'Current context page\'s wrapper',
             'article' => 'Any article wrapper',
         ])))
             ->setDefault($this['scope'] ?? 'page')
@@ -70,6 +72,7 @@ class ScssRichMedia extends AbstractRichMedia
         $scope = null;
         if ($this['scope'] == 'article') $scope = '#article';
         elseif ($this['scope'] == 'parent') $scope = '.page--' . $this->parent();
+        elseif ($this['scope'] == 'context') $scope = '.page--' . Context::pageUUID();
         // apply scope wrapper if specified
         if ($scope) $script = implode(PHP_EOL, ["$scope {", $script, "}"]);
         // return
