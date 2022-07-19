@@ -1,4 +1,6 @@
 <?php
+// used for running cron from the command line, such as with cron jobs
+// note that for this to work you must have a urls.protocol and urls.domain manually configured
 
 use DigraphCMS\Context;
 use DigraphCMS\Cron\Cron;
