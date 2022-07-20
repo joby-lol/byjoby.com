@@ -4,11 +4,13 @@
 
 use DigraphCMS\Context;
 use DigraphCMS\Cron\Cron;
+use DigraphCMS\HTTP\Request;
+use DigraphCMS\HTTP\RequestHeaders;
 use DigraphCMS\URL\URL;
 use DigraphCMS\URL\URLs;
 use DigraphCMS\URL\WaybackMachine;
 
-if (file_exists(__DIR__.'/../.maintenance')) exit();
+if (file_exists(__DIR__ . '/../.maintenance')) exit();
 
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../initialize.php';
@@ -20,6 +22,7 @@ WaybackMachine::deactivate();
 // set up a reasonable context
 URLs::beginContext(new URL('/'));
 Context::begin();
+Context::request(new Request(new URL('/~cron/'), 'get', new RequestHeaders(), []));
 Context::url(new URL('/'));
 
 // run cron jobs
