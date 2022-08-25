@@ -82,6 +82,11 @@
     order: 2;
     font-size: smaller;
 
+    form {
+      display: flex;
+      width: 20em;
+    }
+
     input {
       background: transparent;
       border: 0;
@@ -92,13 +97,24 @@
       background-color: var(--theme-highlight-a10);
     }
 
-    .submit-button {
+    input[type="text"] {
+      flex-grow: 1;
+    }
+
+    input[type="submit"] {
+      display: none;
 
       &:hover,
       &:focus {
         background-color: var(--theme-highlight);
         color: var(--theme-highlight-inv);
       }
+    }
+
+    input[type="text"]:focus+input[type="submit"],
+    input[type="submit"]:focus,
+    input[type="submit"]:hover {
+      display: block;
     }
   }
 

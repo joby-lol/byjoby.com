@@ -36,13 +36,7 @@ if ($user = Users::current()) {
 }
 
 $userMenu = new UserMenu;
-
-if (Context::url()->route() == 'search') {
-    $search = '';
-} else {
-    $search = new SearchForm;
-    $search->queryField()->setAttribute('placeholder', 'search');
-}
+$searchUrl = new URL('/~search/');
 
 ?>
 <header id="header">
@@ -53,9 +47,12 @@ if (Context::url()->route() == 'search') {
             $&nbsp;<span class="header__branding__cursor">&#x2588;</span>
         </span>
     </div>
-    <!-- <div class="header__search">
-        <?php echo $search; ?>
-    </div> -->
+    <div class="header__search">
+        <form action="<?php echo $searchUrl; ?>">
+            <input type="text" placeholder="search" name="q">
+            <input type="submit" value="Go">
+        </form>
+    </div>
     <div class="header__usermenu">
         <?php echo $userMenu; ?>
     </div>
