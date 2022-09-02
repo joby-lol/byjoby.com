@@ -7,15 +7,9 @@ use DigraphCMS\Plugins\AbstractPlugin;
 class Analytics extends AbstractPlugin
 {
 
-  public static function onCookieName($type, $name)
+  public static function onCookieDescribe($type)
   {
-    if (substr($name, 0, 7) == '_pk_id_') return "Matomo ID";
-    else return null;
-  }
-
-  public static function onCookieDescribe($type, $name)
-  {
-    if (substr($name, 0, 7) == '_pk_id_') return "Used to identify this browser session for my self-hosted Matomo analytics server. Is not linked to your identity or persisted once you close your browser.";
+    if (preg_match('/^_pk_(id|ses)_/', $type)) return "Used to identify this browser session for my self-hosted Matomo analytics server. Is not linked to your identity or persisted once you close your browser.";
     else return null;
   }
 
