@@ -52,16 +52,16 @@
         },
         {
             "name": "cakephp/core",
-            "version": "4.4.6",
+            "version": "4.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/core.git",
-                "reference": "6c8c20a59c5d6b03809d5fbc7e1b2f1a5ba910fd"
+                "reference": "20e50de2f461b5983a1a1296fe5c3762857b9edd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/core/zipball/6c8c20a59c5d6b03809d5fbc7e1b2f1a5ba910fd",
-                "reference": "6c8c20a59c5d6b03809d5fbc7e1b2f1a5ba910fd",
+                "url": "https://api.github.com/repos/cakephp/core/zipball/20e50de2f461b5983a1a1296fe5c3762857b9edd",
+                "reference": "20e50de2f461b5983a1a1296fe5c3762857b9edd",
                 "shasum": ""
             },
             "require": {
@@ -105,20 +105,20 @@
                 "issues": "https://github.com/cakephp/cakephp/issues",
                 "source": "https://github.com/cakephp/core"
             },
-            "time": "2022-09-25T07:14:39+00:00"
+            "time": "2022-10-07T16:40:13+00:00"
         },
         {
             "name": "cakephp/database",
-            "version": "4.4.6",
+            "version": "4.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/database.git",
-                "reference": "d33ced21bcf92390a9184c67c6feb8dfa61100d9"
+                "reference": "76ae94d2e405c2a7aef5a6a2e9aba44190048ae7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/database/zipball/d33ced21bcf92390a9184c67c6feb8dfa61100d9",
-                "reference": "d33ced21bcf92390a9184c67c6feb8dfa61100d9",
+                "url": "https://api.github.com/repos/cakephp/database/zipball/76ae94d2e405c2a7aef5a6a2e9aba44190048ae7",
+                "reference": "76ae94d2e405c2a7aef5a6a2e9aba44190048ae7",
                 "shasum": ""
             },
             "require": {
@@ -127,7 +127,8 @@
                 "php": ">=7.4.0"
             },
             "suggest": {
-                "cakephp/i18n": "If you are using locale-aware datetime formats or Chronos types."
+                "cakephp/i18n": "If you are using locale-aware datetime formats or Chronos types.",
+                "cakephp/log": "If you want to use query logging without providing a logger yourself."
             },
             "type": "library",
             "autoload": {
@@ -160,11 +161,11 @@
                 "issues": "https://github.com/cakephp/cakephp/issues",
                 "source": "https://github.com/cakephp/database"
             },
-            "time": "2022-09-25T07:14:39+00:00"
+            "time": "2022-10-22T12:49:22+00:00"
         },
         {
             "name": "cakephp/datasource",
-            "version": "4.4.6",
+            "version": "4.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/datasource.git",
@@ -222,16 +223,16 @@
         },
         {
             "name": "cakephp/utility",
-            "version": "4.4.6",
+            "version": "4.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/utility.git",
-                "reference": "7d28a3935f746fcbbfb38e8dddaa9c9d48b251c5"
+                "reference": "a3fb57b8da981bb549ce02c0438ab5743053dd45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/utility/zipball/7d28a3935f746fcbbfb38e8dddaa9c9d48b251c5",
-                "reference": "7d28a3935f746fcbbfb38e8dddaa9c9d48b251c5",
+                "url": "https://api.github.com/repos/cakephp/utility/zipball/a3fb57b8da981bb549ce02c0438ab5743053dd45",
+                "reference": "a3fb57b8da981bb549ce02c0438ab5743053dd45",
                 "shasum": ""
             },
             "require": {
@@ -277,7 +278,7 @@
                 "issues": "https://github.com/cakephp/cakephp/issues",
                 "source": "https://github.com/cakephp/utility"
             },
-            "time": "2022-08-19T06:02:03+00:00"
+            "time": "2022-10-10T18:01:10+00:00"
         },
         {
             "name": "caxy/php-htmldiff",
@@ -346,12 +347,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/digraph-cms/digraph-core.git",
-                "reference": "6c1cb4350e7d995f64023f1a7b6591c6b16c5505"
+                "reference": "e771f3eb8a9fc6ad25e92acf25e8f764226f8b69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/digraph-cms/digraph-core/zipball/6c1cb4350e7d995f64023f1a7b6591c6b16c5505",
-                "reference": "6c1cb4350e7d995f64023f1a7b6591c6b16c5505",
+                "url": "https://api.github.com/repos/digraph-cms/digraph-core/zipball/e771f3eb8a9fc6ad25e92acf25e8f764226f8b69",
+                "reference": "e771f3eb8a9fc6ad25e92acf25e8f764226f8b69",
                 "shasum": ""
             },
             "require": {
@@ -363,6 +364,7 @@
                 "ext-mbstring": "*",
                 "ext-xml": "*",
                 "ext-zip": "*",
+                "ezyang/htmlpurifier": "^4.16",
                 "fpdo/fluentpdo": "2.2.0 - 2.2.2||^2.2.4",
                 "html2text/html2text": "^4.3",
                 "ksubileau/color-thief-php": "^1.4",
@@ -423,7 +425,7 @@
                 "issues": "https://github.com/digraph-cms/digraph-core/issues",
                 "source": "https://github.com/digraph-cms/digraph-core/tree/v2"
             },
-            "time": "2022-10-28T19:54:22+00:00"
+            "time": "2022-11-18T16:40:48+00:00"
         },
         {
             "name": "donatj/phpuseragentparser",
@@ -1229,16 +1231,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "3.10.2",
+            "version": "3.10.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "b9bd194b016114d6ff6765c09d40c7d427e4e3f6"
+                "reference": "8013fb046c6a244b2b1b75cc95d732ed6bcdeb8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/b9bd194b016114d6ff6765c09d40c7d427e4e3f6",
-                "reference": "b9bd194b016114d6ff6765c09d40c7d427e4e3f6",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/8013fb046c6a244b2b1b75cc95d732ed6bcdeb8a",
+                "reference": "8013fb046c6a244b2b1b75cc95d732ed6bcdeb8a",
                 "shasum": ""
             },
             "require": {
@@ -1300,7 +1302,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/3.10.2"
+                "source": "https://github.com/thephpleague/flysystem/tree/3.10.3"
             },
             "funding": [
                 {
@@ -1316,7 +1318,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-10-25T07:01:47+00:00"
+            "time": "2022-11-14T10:42:43+00:00"
         },
         {
             "name": "league/glide",
@@ -1567,16 +1569,16 @@
         },
         {
             "name": "league/oauth2-github",
-            "version": "3.0.0",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/oauth2-github.git",
-                "reference": "266e9589a99e75bf696314e9ad8224009fccb91c"
+                "reference": "97f31cd70e76f81e8f5b4e2ab6f3708e2db7ac18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/oauth2-github/zipball/266e9589a99e75bf696314e9ad8224009fccb91c",
-                "reference": "266e9589a99e75bf696314e9ad8224009fccb91c",
+                "url": "https://api.github.com/repos/thephpleague/oauth2-github/zipball/97f31cd70e76f81e8f5b4e2ab6f3708e2db7ac18",
+                "reference": "97f31cd70e76f81e8f5b4e2ab6f3708e2db7ac18",
                 "shasum": ""
             },
             "require": {
@@ -1627,9 +1629,9 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/oauth2-github/issues",
-                "source": "https://github.com/thephpleague/oauth2-github/tree/3.0.0"
+                "source": "https://github.com/thephpleague/oauth2-github/tree/3.1.0"
             },
-            "time": "2021-05-10T13:15:40+00:00"
+            "time": "2022-11-04T14:01:49+00:00"
         },
         {
             "name": "league/oauth2-google",
@@ -3603,16 +3605,16 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.26.0",
+            "version": "v1.27.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "6fd1b9a79f6e3cf65f9e679b23af304cd9e010d4"
+                "reference": "5bbc823adecdae860bb64756d639ecfec17b050a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/6fd1b9a79f6e3cf65f9e679b23af304cd9e010d4",
-                "reference": "6fd1b9a79f6e3cf65f9e679b23af304cd9e010d4",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/5bbc823adecdae860bb64756d639ecfec17b050a",
+                "reference": "5bbc823adecdae860bb64756d639ecfec17b050a",
                 "shasum": ""
             },
             "require": {
@@ -3627,7 +3629,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.26-dev"
+                    "dev-main": "1.27-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -3665,7 +3667,7 @@
                 "portable"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.26.0"
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.27.0"
             },
             "funding": [
                 {
@@ -3681,20 +3683,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-24T11:49:31+00:00"
+            "time": "2022-11-03T14:55:06+00:00"
         },
         {
             "name": "symfony/polyfill-intl-grapheme",
-            "version": "v1.26.0",
+            "version": "v1.27.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-grapheme.git",
-                "reference": "433d05519ce6990bf3530fba6957499d327395c2"
+                "reference": "511a08c03c1960e08a883f4cffcacd219b758354"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-grapheme/zipball/433d05519ce6990bf3530fba6957499d327395c2",
-                "reference": "433d05519ce6990bf3530fba6957499d327395c2",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-grapheme/zipball/511a08c03c1960e08a883f4cffcacd219b758354",
+                "reference": "511a08c03c1960e08a883f4cffcacd219b758354",
                 "shasum": ""
             },
             "require": {
@@ -3706,7 +3708,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.26-dev"
+                    "dev-main": "1.27-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -3746,7 +3748,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-intl-grapheme/tree/v1.26.0"
+                "source": "https://github.com/symfony/polyfill-intl-grapheme/tree/v1.27.0"
             },
             "funding": [
                 {
@@ -3762,20 +3764,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-24T11:49:31+00:00"
+            "time": "2022-11-03T14:55:06+00:00"
         },
         {
             "name": "symfony/polyfill-intl-normalizer",
-            "version": "v1.26.0",
+            "version": "v1.27.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-normalizer.git",
-                "reference": "219aa369ceff116e673852dce47c3a41794c14bd"
+                "reference": "19bd1e4fcd5b91116f14d8533c57831ed00571b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-normalizer/zipball/219aa369ceff116e673852dce47c3a41794c14bd",
-                "reference": "219aa369ceff116e673852dce47c3a41794c14bd",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-normalizer/zipball/19bd1e4fcd5b91116f14d8533c57831ed00571b6",
+                "reference": "19bd1e4fcd5b91116f14d8533c57831ed00571b6",
                 "shasum": ""
             },
             "require": {
@@ -3787,7 +3789,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.26-dev"
+                    "dev-main": "1.27-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -3830,7 +3832,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.26.0"
+                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.27.0"
             },
             "funding": [
                 {
@@ -3846,20 +3848,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-24T11:49:31+00:00"
+            "time": "2022-11-03T14:55:06+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.26.0",
+            "version": "v1.27.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "9344f9cb97f3b19424af1a21a3b0e75b0a7d8d7e"
+                "reference": "8ad114f6b39e2c98a8b0e3bd907732c207c2b534"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/9344f9cb97f3b19424af1a21a3b0e75b0a7d8d7e",
-                "reference": "9344f9cb97f3b19424af1a21a3b0e75b0a7d8d7e",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/8ad114f6b39e2c98a8b0e3bd907732c207c2b534",
+                "reference": "8ad114f6b39e2c98a8b0e3bd907732c207c2b534",
                 "shasum": ""
             },
             "require": {
@@ -3874,7 +3876,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.26-dev"
+                    "dev-main": "1.27-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -3913,7 +3915,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.26.0"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.27.0"
             },
             "funding": [
                 {
@@ -3929,7 +3931,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-24T11:49:31+00:00"
+            "time": "2022-11-03T14:55:06+00:00"
         },
         {
             "name": "symfony/process",
